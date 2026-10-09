@@ -1,0 +1,202 @@
+/* サイバー攻撃・個人情報流出から自分を守る 共通スタイル
+   方針: 白地・左揃え・罫線で区切る。チェックは表（質問の列＋はい/いいえの列）、結果は表。
+   色はボタンと選択中・見出しの線だけ。角丸・影・バッジは使わない。 */
+:root{--ink:#2b2b2b;--sub:#5f5f5f;--line:#cfc6b8;--line-l:#e8e1d6;--head:#fff6ea;--accent:#e2600f;--accent-d:#b84c0a;--yes:#2b2b2b;--link:#0b57a4;--warn:#a1360b}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic Medium","Meiryo",sans-serif;font-size:16px;line-height:1.7}
+a{color:var(--link)}
+p{margin:0 0 .8rem}
+ul,ol{padding-left:1.4rem;margin:.2rem 0 .8rem}
+li{margin:0 0 .3rem}
+b,strong{font-weight:700}
+
+/* サイト上部 */
+.site{border-bottom:2px solid var(--accent)}
+.site-in{max-width:760px;margin:0 auto;padding:9px 16px;display:flex;align-items:baseline;justify-content:space-between;gap:6px 12px;flex-wrap:wrap}
+.site-name{font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+.site-nav{font-size:13.5px}
+.site-nav a{color:var(--sub);text-decoration:none;margin-left:12px;display:inline-block;padding:4px 0}
+.site-nav a:first-child{margin-left:0}
+.site-nav a[aria-current]{color:var(--ink);font-weight:700;border-bottom:2px solid var(--ink)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 40px}
+h1{font-size:21px;font-weight:700;margin:0 0 .3rem;line-height:1.4}
+.lead{font-size:15px;margin:0 0 .4rem}
+.meta{font-size:12.5px;color:var(--sub);margin:0 0 .8rem}
+h2{font-size:19px;font-weight:700;margin:2.2rem 0 .6rem;padding:0 0 .3rem;border-bottom:2px solid var(--ink);line-height:1.4;scroll-margin-top:8px}
+h3{font-size:16.5px;font-weight:700;margin:1.4rem 0 .4rem;padding-left:.55rem;border-left:4px solid var(--accent);line-height:1.4;scroll-margin-top:8px}
+
+/* 表 */
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.55}
+th{background:var(--head);font-weight:700}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+.note{font-size:13px;color:var(--sub)}
+.src{font-size:12.5px;color:var(--sub);margin:.3rem 0 0}
+
+/* チェック（質問の列＋はい/いいえの列） */
+.chk{margin:.2rem 0 0;font-size:15px}
+.chk th{font-weight:700;background:#fff;vertical-align:middle;line-height:1.45;padding:8px 10px}
+.chk th small{display:block;font-weight:400;font-size:12.5px;color:var(--sub);margin-top:2px}
+.chk th .no{color:var(--sub);font-weight:400;margin-right:.3em}
+.chk td{width:8.6em;padding:5px 6px;vertical-align:middle}
+.chk tr.done th{background:#fcfaf6}
+.yn{display:flex;gap:0}
+.yn button{flex:1 1 50%;font:inherit;font-size:15px;line-height:1.2;min-height:44px;padding:6px 4px;color:var(--ink);background:#fff;border:1px solid var(--line);margin-left:-1px;cursor:pointer}
+.yn button:first-child{margin-left:0}
+.yn button:hover{background:#f7f3ec}
+.yn button[aria-pressed="true"]{background:var(--yes);color:#fff;border-color:var(--yes);font-weight:700;position:relative;z-index:1}
+.yn button[data-v="0"][aria-pressed="true"]{background:var(--warn);border-color:var(--warn)}
+
+/* 下の固定バー（主操作はここに1つ） */
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:2px solid var(--accent);padding:8px 16px calc(8px + env(safe-area-inset-bottom))}
+#dock .in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px}
+#dock .prog{font-size:14px;color:var(--sub);white-space:nowrap}
+#dock .prog b{color:var(--ink);font-size:16px}
+#dock button{flex:1 1 auto;font:inherit;font-weight:700;font-size:16px;min-height:48px;background:var(--accent);color:#fff;border:1px solid var(--accent-d);cursor:pointer}
+#dock button:disabled{background:#d9d2c7;border-color:#d9d2c7;color:#fff;cursor:default}
+body.dockOff #dock{display:none}
+
+/* 結果 */
+.result{margin-top:1rem;border:2px solid var(--ink);padding:10px 12px 12px;scroll-margin-top:8px}
+.result[hidden]{display:none}
+.result .score{font-size:13px;color:var(--sub);margin:0}
+.result .big{font-size:20px;font-weight:700;margin:.1rem 0 .5rem;line-height:1.4}
+.todo{margin:0;font-size:15px}
+.todo td.n{width:2.2em;text-align:center;font-weight:700}
+.todo td b{display:block}
+.todo td .how{font-size:13.5px;color:var(--sub);display:block;margin-top:2px}
+.todo td a{font-size:14px}
+.result .rest{font-size:14px;margin:.6rem 0 0}
+.result .next{font-size:15px;margin:.8rem 0 0;padding-top:.6rem;border-top:1px solid var(--line-l)}
+.btn{display:inline-block;margin:.5rem 0 0;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:.65rem 1.1rem;font-size:15.5px;border:1px solid var(--accent-d);min-height:44px}
+.btn:hover{background:var(--accent-d)}
+.btn2{display:inline-block;margin:.5rem 0 0 .2rem;font-size:14.5px;padding:.6rem .2rem}
+.again{font:inherit;font-size:14px;background:#fff;border:1px solid var(--line);padding:.45rem .9rem;min-height:44px;margin-top:.6rem;cursor:pointer}
+
+/* 広告 */
+.kkp-ad{text-align:center;margin:1.6rem auto 0;max-width:680px;min-height:288px;padding-top:6px}
+.kkp-ad[hidden]{display:none}
+.kkp-ad-label{font-size:11px;color:#999;letter-spacing:.08em;margin:0 0 6px;line-height:1}
+.kkp-ad ins.adsbygoogle{display:block;width:300px;height:250px;margin:0 auto}
+
+/* 読み物 */
+.toc{border:1px solid var(--line);padding:.5rem .9rem;margin:.8rem 0 0;font-size:14.5px}
+.toc b{display:block;margin-bottom:.1rem}
+.toc ol{margin:.1rem 0 0;padding-left:1.4rem}
+.toc li{margin:0}
+.point{border-left:4px solid var(--accent);background:var(--head);padding:.5rem .9rem;margin:.8rem 0;font-size:15px}
+.point > b:first-child{display:block;margin-bottom:.1rem}
+.point ul{margin:.2rem 0 0}
+.pr{font-size:12.5px;color:var(--sub);border:1px solid var(--line);padding:.3rem .6rem;margin:.6rem 0}
+.cmp{font-size:14px}
+.cmp th:first-child{width:7.5em}
+.cmp td.num{font-weight:700}
+.steps{counter-reset:s;list-style:none;padding-left:0}
+.steps > li{counter-increment:s;padding-left:2em;position:relative;margin:0 0 .6rem}
+.steps > li::before{content:counter(s) ".";position:absolute;left:0;top:0;font-weight:700;width:1.6em;text-align:right}
+.faq details{border-bottom:1px solid var(--line-l);padding:.1rem 0}
+.faq summary{cursor:pointer;font-weight:700;padding:.55rem 0;font-size:15px;min-height:44px}
+.faq p{margin:0 0 .7rem;font-size:15px}
+.sources{font-size:13px;color:var(--sub)}
+.sources li{margin:0 0 .35rem;word-break:break-all}
+.author{margin:2.2rem 0 0;padding:.6rem 0 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--sub)}
+.author p{margin:.2rem 0 0}
+.related{max-width:760px;margin:2rem auto 0;padding:0 16px;font-size:14.5px}
+.related b{display:block;border-bottom:2px solid var(--ink);padding-bottom:.25rem;margin-bottom:.2rem}
+.related a{display:block;padding:.55rem 0;border-bottom:1px solid var(--line-l);color:var(--link);text-decoration:none}
+
+@media(max-width:480px){
+  h1{font-size:19.5px}
+  .chk th{padding:7px 7px;font-size:14.5px}
+  .chk td{width:7.4em;padding:4px 4px}
+  table{font-size:14px}
+  .todo td{padding:6px 7px}
+}
+
+/* 条件を選ぶ表（項目名の列＋選択の列） */
+.tool{width:100%;border-collapse:collapse;margin:.2rem 0 0;font-size:15px}
+.tool th{width:7em;background:var(--head);font-weight:700;border:1px solid var(--line);padding:8px 10px;vertical-align:middle;line-height:1.35}
+.tool td{border:1px solid var(--line);padding:5px 6px;vertical-align:middle}
+.seg{display:flex;flex-wrap:wrap;gap:0;margin:0}
+.seg button{font:inherit;font-size:15px;line-height:1.3;color:var(--ink);background:#fff;border:1px solid var(--line);margin:0 0 -1px -1px;padding:8px 8px;min-height:44px;cursor:pointer;flex:1 1 auto}
+.seg button:first-child{margin-left:0}
+.seg button:hover{background:#f7f3ec}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);position:relative;z-index:1;font-weight:700}
+.todo tr.win td{font-weight:700;background:var(--head)}
+.todo th{font-size:13.5px}
+
+/* 統一フッター（CSPでstyle属性を使えないのでクラスで） */
+footer.uf{text-align:center;padding:2rem 1rem 2.5rem;font-size:.78rem;color:#94a3b8;line-height:2;border-top:1px solid #f0e6d2;margin-top:2.5rem;background:#fffcf7}
+footer.uf .uf-name{font-weight:800;color:#8b6b3d;font-size:.85rem;margin-bottom:.4rem}
+footer.uf a{color:#8b6b3d;text-decoration:none;margin:0 .5rem;display:inline-block;padding:4px 0}
+footer.uf .uf-c{margin-top:.5rem;color:#bfa97a}
+body.hasDock footer.uf{padding-bottom:calc(2.5rem + 72px)}
+
+/* スマホで「いいえ」を折らない・上部を詰める */
+.yn button{white-space:nowrap}
+@media(max-width:480px){
+  .site-in{padding:6px 12px}
+  .site-name{font-size:14px}
+  .site-nav{font-size:13px;width:100%;display:flex;flex-wrap:wrap;gap:0 12px}
+  .site-nav a{margin-left:0;padding:3px 0}
+  .wrap{padding-top:10px}
+  h1{font-size:18.5px}
+  .lead{font-size:14.5px}
+  .chk td{width:8.2em;padding:4px 4px}
+  .yn button{font-size:14.5px;padding:6px 2px}
+}
+.todo td a{display:inline-block;padding:10px 0 6px;font-size:14.5px}
+
+/* 困ったとき */
+.pick{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.pick a{display:block;padding:11px 12px;min-height:48px;border:1px solid var(--line);border-top:0;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px;line-height:1.45;background:#fff}
+.pick a::after{content:" ›";color:var(--accent)}
+.pick a:hover{background:#f7f3ec}
+.pick a[aria-current="true"]{background:var(--ink);color:#fff}
+.case{scroll-margin-top:8px}
+.case.on h2{border-bottom-color:var(--accent)}
+.case.on{background:linear-gradient(var(--head),var(--head)) left top/4px 100% no-repeat;padding-left:12px}
+
+/* 2段階認証の棚卸し */
+.pickSvc th{width:7.5em;font-size:13.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:inherit;font-size:14px;line-height:1.3;min-height:44px;padding:6px 10px;background:#fff;color:var(--ink);border:1px solid var(--line);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+.svc td{vertical-align:middle}
+.svc td b{display:block}
+.svc td .how{display:block;font-size:13px;color:var(--sub)}
+.svc a.go{display:inline-block;padding:10px 0 4px;font-size:14.5px}
+.svc td.st{width:6.5em;text-align:center}
+.svc button.mk{font:inherit;font-size:14px;min-height:44px;width:100%;background:#fff;border:1px solid var(--line);cursor:pointer;color:var(--ink)}
+.svc button.mk[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+.svc tr.ok td{background:#faf8f4}
+@media(max-width:480px){.pickSvc th{width:5.2em;padding:6px 5px;font-size:12.5px}.pickSvc td{padding:5px}.chips button{font-size:13.5px;padding:6px 8px}}
+.note .again{display:block;margin-top:6px}
+
+/* 見分けトレーニング */
+.quiz{scroll-margin-top:8px}
+.q-prog{font-size:13.5px;color:var(--sub);margin:0 0 .3rem}
+.msg{border:1px solid var(--line);background:#f6f6f4;padding:10px 12px;margin:0 0 .6rem}
+.msg p{margin:0 0 .3rem}
+.msg .m-kind{font-size:12.5px;color:var(--sub)}
+.msg .m-body{font-size:16px;line-height:1.6}
+.msg .m-link{font-size:13.5px;color:#0b57a4;text-decoration:underline dotted;margin:0}
+.q-ask{font-weight:700;margin:.2rem 0 .4rem}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opts button{font:inherit;font-size:15px;line-height:1.45;text-align:left;min-height:48px;padding:9px 12px;background:#fff;color:var(--ink);border:1px solid var(--line);cursor:pointer}
+.opts button:hover:not(:disabled){background:#f7f3ec}
+.opts button:disabled{cursor:default}
+.opts button.right{border:2px solid #1d6b33;background:#eef7f0;font-weight:700}
+.opts button.right::before{content:"正しい理由　";color:#1d6b33;font-size:12.5px;font-weight:700}
+.opts button.wrong{border:2px solid var(--warn);background:#fbefe9}
+.opts button.wrong::before{content:"あなたの答え　";color:var(--warn);font-size:12.5px;font-weight:700}
+.fb{margin:.6rem 0 0;padding:.5rem 0 0;border-top:1px solid var(--line-l);font-size:15px}
+.fb[hidden]{display:none}
+.fb .fb-h{font-weight:700;margin:0 0 .3rem}
+.fb .fb-h.ok{color:#1d6b33}
+.fb .fb-h.ng{color:var(--warn)}
+.fb{scroll-margin-bottom:96px}
+.jump{font-size:14.5px;margin:0 0 .8rem;padding:.45rem .7rem;border-left:4px solid var(--warn);background:#fbefe9}
+.jump a{font-weight:700;display:inline-block;padding:4px 0}

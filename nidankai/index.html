@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="msvalidate.01" content="EF6E7C7B123A3218DAE3B152F5B0764D" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2段階認証の設定ページ一覧｜Gmail・LINE・Amazon・楽天・PayPay・証券など27サービスの棚卸しチェック</title>
+<meta name="description" content="使っているサービスを選ぶと、各社公式の2段階認証（ログイン許可・ワンタイムパスワード・パスキーなど）の設定ページに直接進めます。設定したものに印を付けると進み具合が分かります。Google・Apple・LINE・Instagram・X・Amazon・楽天・PayPay・メルカリ・ドコモ・au・ゆうちょ・SBI証券・楽天証券など。記録はこの端末にだけ残ります。">
+<link rel="canonical" href="https://mamoru.kkpwebninja.com/nidankai/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#e2600f">
+<!-- WEBNINJA_UNIFIED_FAVICON -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="2段階認証の棚卸しチェック｜各社公式の設定ページへ直接">
+<meta property="og:description" content="使っているサービスを選ぶと、各社公式の設定ページへ。設定したら印を付けて進み具合を確認。記録はこの端末だけ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamoru.kkpwebninja.com/nidankai/">
+<meta property="og:site_name" content="サイバー攻撃・個人情報流出から自分を守る">
+<meta property="og:image" content="https://mamoru.kkpwebninja.com/ogp.png?d=20261009">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mamoru.kkpwebninja.com/ogp.png?d=20261009">
+<script src="/ga.js"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebApplication","@id":"https://mamoru.kkpwebninja.com/nidankai/#app","name":"2段階認証の棚卸しチェック","url":"https://mamoru.kkpwebninja.com/nidankai/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"ja","datePublished":"2026-10-09","dateModified":"2026-10-09","description":"使っているサービスを選ぶと各社公式の2段階認証の設定ページへ進め、設定済みの印で進み具合が分かる無料ツール。記録は端末内のみ。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Organization","name":"web忍者の砦"},"publisher":{"@type":"Organization","name":"web忍者の砦","url":"https://kkpwebninja.com/"}},
+    {"@type":"FAQPage","@id":"https://mamoru.kkpwebninja.com/nidankai/#faq","mainEntity":[
+      {"@type":"Question","name":"2段階認証はどのサービスから設定すればいいですか？","acceptedAnswer":{"@type":"Answer","text":"メール（Google・Apple・Microsoft・Yahoo!）からです。ほかのサービスのパスワード再設定はメールに届くので、メールを守ると全体が守られます。次に銀行・カード・証券などお金のサービスです。"}},
+      {"@type":"Question","name":"「2段階認証」という設定が見つかりません。","acceptedAnswer":{"@type":"Answer","text":"会社によって呼び名が違います。LINEは「ログイン許可」、Yahoo! JAPANは「ワンタイムパスワード」、楽天カードは「第2パスワード」、メルカリは「パスキー」です。このページでは各社の呼び名を併記しています。"}},
+      {"@type":"Question","name":"選んだサービスや印はどこかに送られますか？","acceptedAnswer":{"@type":"Answer","text":"送られません。このブラウザの中にだけ保存され、「この端末の記録を消す」で消せます。"}}
+    ]}
+  ]
+}
+</script>
+<link rel="stylesheet" href="/style.css?v=20261009e">
+</head>
+<body class="hasDock">
+<div class="site"><div class="site-in">
+  <a class="site-name" href="/">サイバー攻撃・個人情報流出から自分を守る</a>
+  <nav class="site-nav"><a href="/">守り度チェック</a><a href="/nidankai/" aria-current="page">2段階認証</a><a href="/sagi/">詐欺メール</a><a href="/password/">パスワード</a><a href="/komattara/">困ったとき</a></nav>
+</div></div>
+<div class="wrap">
+<header>
+  <h1>2段階認証の棚卸しチェック</h1>
+  <p class="lead">1. 使っているサービスを押して選ぶ → 2. 下の一覧から公式の設定ページを開く → 3. 設定したら「まだ」を押して「設定した」に。</p>
+  <p class="meta">更新日 2026年10月9日（リンク先の確認日）　記録はこの端末にだけ残ります（送信しません）</p>
+</header>
+
+<main>
+<table class="tool pickSvc" id="pickSvc" aria-label="使っているサービスを選ぶ"></table>
+
+<h2 id="list">あなたの一覧</h2>
+<div id="myList"></div>
+<p class="note">記録はこのブラウザの中（localStorage）だけに残ります。<button type="button" class="again" id="clearAll">この端末の記録を消す</button></p>
+
+<h2 id="naze">なぜ2段階認証なのか</h2>
+<p>パスワードは、偽サイトへの入力やサービスからの流出で、本人が気づかないうちに漏れることがあります。2段階認証を付けておくと、パスワードのほかに「本人のスマホでの承認」や「届いたコード」が要るので、パスワードだけでは入られにくくなります。金融庁も、多要素認証（追加の認証）を有効にするよう呼びかけています。</p>
+<h3>順番はメール → お金 → そのほか</h3>
+<p>ほかのサービスの「パスワードを忘れた」の再設定はメールに届きます。だから最初はメールのアカウント。次に銀行・カード・証券・決済。SNSやゲームはそのあとで構いません。</p>
+<h3>設定のあとにやっておくこと</h3>
+<ul>
+  <li><b>予備の手段を登録する</b>。スマホをなくしたときのために、設定ページに予備のコード（バックアップコード）や別の連絡先の登録があれば済ませておきます。予備のコードは紙に書いて保管します。</li>
+  <li><b>届いたコードやパスワードを人に教えない</b>。警察庁は、金融機関がID・パスワードをメールやSMSで聞くことはないとしています。</li>
+</ul>
+<h3>呼び名が会社ごとに違う</h3>
+<p>LINEは「ログイン許可」、Yahoo! JAPANは「ワンタイムパスワード」、楽天カードは「第2パスワード」、メルカリやパスキー対応の証券は「パスキー」。上の一覧に各社の呼び名を書いています。</p>
+
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<details><summary>どれから設定すればいい？</summary><p>メール（Google・Apple・Microsoft・Yahoo!）からです。次にお金のサービス。</p></details>
+<details><summary>パスキーと2段階認証はどう違う？</summary><p>パスキーは、パスワードの代わりにスマホの指紋・顔認証などでログインする仕組みです。偽サイトに入力させる手口に強いとされ、日本証券業協会も証券口座でパスキーなどへの切り替えを呼びかけています。対応しているサービスなら、パスキーを選ぶのがよい選択です。</p></details>
+<details><summary>ここにないサービスは？</summary><p>そのサービスの公式アプリかサイトの「セキュリティ」「ログイン設定」「アカウント設定」を探してください。検索で出たページが公式かどうかは、アドレス（ドメイン）で確かめます。</p></details>
+<details><summary>選んだサービスは送られますか？</summary><p>送られません。この端末にだけ保存され、「この端末の記録を消す」で消せます。</p></details>
+</section>
+
+<h2 id="shutten">出典（確認日 2026年10月9日）</h2>
+<ul class="sources">
+  <li>各社の公式ヘルプ・公式サイト（一覧のリンク先。すべて各社の公式ドメイン）</li>
+  <li>金融庁「インターネット取引サービスへの不正アクセス・不正取引にご注意ください」https://www.fsa.go.jp/ordinary/chuui/chuui_phishing.html</li>
+  <li>日本証券業協会「不正アクセス等にご注意ください！」https://www.jsda.or.jp/about/hatten/inv_alerts/alearts04/index.html</li>
+  <li>警察庁「フィッシング対策」https://www.npa.go.jp/bureau/cyber/countermeasures/phishing.html</li>
+</ul>
+
+<div class="author"><b>このサイトについて</b>
+<p>運営: web忍者の砦。リンク先は各社の公式ページで開けることを確かめ、確認日を付けています。このページは入力した内容を送信しません。<a href="https://privacypolicy.kkpwebninja.com/" target="_blank" rel="noopener">プライバシーポリシー</a></p></div>
+</main>
+</div>
+
+<div id="dock"><div class="in"><span class="prog">設定済み <b id="dAns">0</b> / <span id="dTot">0</span></span><button type="button" id="dBtn" disabled>使っているサービスを選ぶ</button></div></div>
+
+<!-- WEBNINJA_UNIFIED_FOOTER -->
+<footer class="uf">
+  <div class="uf-name">web忍者の砦</div>
+  <div><a href="https://kkpwebninja.com/" target="_blank" rel="noopener">本丸トップ</a>·<a href="https://privacypolicy.kkpwebninja.com/" target="_blank" rel="noopener">プライバシーポリシー</a>·<a href="https://kkpwebninja.com/otoiawase" target="_blank" rel="noopener">お問い合わせ</a>·<a href="https://x.com/kkp_webninja" target="_blank" rel="noopener">@kkp_webninja</a></div>
+  <div class="uf-c">© 2025-2026 web忍者の砦</div>
+</footer>
+<script src="/store.js"></script>
+<script src="/nidankai/list.js"></script>
+</body>
+</html>
