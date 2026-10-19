@@ -200,3 +200,30 @@ body.hasDock footer.uf{padding-bottom:calc(2.5rem + 72px)}
 .fb{scroll-margin-bottom:96px}
 .jump{font-size:14.5px;margin:0 0 .8rem;padding:.45rem .7rem;border-left:4px solid var(--warn);background:#fbefe9}
 .jump a{font-weight:700;display:inline-block;padding:4px 0}
+
+/* ===== 2026-10-19 共通部品 D4（ストリート和忍者）に見た目をそろえる（道具なので控えめに） =====
+   このサイトは外部への通信を増やさないため、Web フォント（筆・太字）は読まない（CSP も今のまま）。
+   kit/ は同じドメインから読む。色・ふち・影・木札だけ。はい/いいえ・正解/不正解の色、表、文章は変えない。 */
+body{background:var(--k-surface)}
+.site{background:var(--k-kinari) url(/kit/img/d4-washi.webp) 0 0/320px auto;border-bottom:var(--k-bw) solid var(--k-sumi)}
+.site-name{color:var(--k-sumi);letter-spacing:.04em}
+.site-nav a[aria-current]{border-bottom-color:var(--k-orange)}
+h2{border-bottom-color:var(--k-sumi)}
+h3{border-left-color:var(--k-orange)}
+th{background:var(--k-kinari)}
+.yn button,.opts button{border-color:rgba(31,26,23,.35)}
+/* 下の固定バー: 市松の帯に、押せるときだけ木札 */
+#dock{background-color:var(--k-kinari);background-image:conic-gradient(rgba(31,26,23,.045) 25%,transparent 0 50%,rgba(31,26,23,.045) 0 75%,transparent 0);background-size:16px 16px;border-top:var(--k-bw) solid var(--k-sumi)}
+#dock button:not(:disabled){border-style:solid;border-width:10px 16px;border-image:url(/kit/img/d3-wood.webp) 40 50 fill / 10px 16px stretch;background:none;color:#fff;text-shadow:var(--k-outline);filter:drop-shadow(3px 3px 0 var(--k-sumi));min-height:56px;padding:0 8px;letter-spacing:.04em}
+#dock button:not(:disabled):active{transform:translate(3px,3px);filter:none}
+#dock button:disabled{border:var(--k-bw-s) solid #c9bfb0}
+/* 結果の枠: 和紙＋墨のふち＋斜めずらしの影 */
+.result{background:var(--k-kinari) url(/kit/img/d4-washi.webp) 0 0/320px auto;border:var(--k-bw) solid var(--k-sumi);border-radius:var(--k-r);box-shadow:var(--k-sh-l);margin-bottom:14px}
+.result table,.result th,.result td{background-color:transparent}
+.result th{background:rgba(255,253,248,.7)}
+/* 案内のボタン＝朱の小ボタン／やり直し＝生成り */
+.btn{background:var(--k-shu);border:var(--k-bw-s) solid var(--k-sumi);border-radius:var(--k-r);box-shadow:var(--k-sh-s)}
+.btn:hover{background:#e35539}
+.btn:active{transform:translate(3px,3px);box-shadow:none}
+.again{background:var(--k-kinari);color:var(--k-sumi);border:var(--k-bw-s) solid var(--k-sumi);border-radius:var(--k-r);box-shadow:var(--k-sh-s);font-weight:700}
+.again:active{transform:translate(3px,3px);box-shadow:none}
