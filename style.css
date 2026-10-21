@@ -15,14 +15,14 @@ b,strong{font-weight:700}
 .site{border-bottom:2px solid var(--accent)}
 .site-in{max-width:760px;margin:0 auto;padding:9px 16px;display:flex;align-items:baseline;justify-content:space-between;gap:6px 12px;flex-wrap:wrap}
 .site-name{font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
-.site-nav{font-size:13.5px}
+.site-nav{font-size:14px}
 .site-nav a{color:var(--sub);text-decoration:none;margin-left:12px;display:inline-block;padding:4px 0}
 .site-nav a:first-child{margin-left:0}
 .site-nav a[aria-current]{color:var(--ink);font-weight:700;border-bottom:2px solid var(--ink)}
 .wrap{max-width:760px;margin:0 auto;padding:14px 16px 40px}
 h1{font-size:21px;font-weight:700;margin:0 0 .3rem;line-height:1.4}
 .lead{font-size:15px;margin:0 0 .4rem}
-.meta{font-size:12.5px;color:var(--sub);margin:0 0 .8rem}
+.meta{font-size:14px;color:var(--sub);margin:0 0 .8rem}
 h2{font-size:19px;font-weight:700;margin:2.2rem 0 .6rem;padding:0 0 .3rem;border-bottom:2px solid var(--ink);line-height:1.4;scroll-margin-top:8px}
 h3{font-size:16.5px;font-weight:700;margin:1.4rem 0 .4rem;padding-left:.55rem;border-left:4px solid var(--accent);line-height:1.4;scroll-margin-top:8px}
 
@@ -32,13 +32,13 @@ th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-ali
 th{background:var(--head);font-weight:700}
 td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .scroll{overflow-x:auto}
-.note{font-size:13px;color:var(--sub)}
-.src{font-size:12.5px;color:var(--sub);margin:.3rem 0 0}
+.note{font-size:14px;color:var(--sub)}
+.src{font-size:14px;color:var(--sub);margin:.3rem 0 0}
 
 /* チェック（質問の列＋はい/いいえの列） */
 .chk{margin:.2rem 0 0;font-size:15px}
 .chk th{font-weight:700;background:#fff;vertical-align:middle;line-height:1.45;padding:8px 10px}
-.chk th small{display:block;font-weight:400;font-size:12.5px;color:var(--sub);margin-top:2px}
+.chk th small{display:block;font-weight:400;font-size:14px;color:var(--sub);margin-top:2px}
 .chk th .no{color:var(--sub);font-weight:400;margin-right:.3em}
 .chk td{width:8.6em;padding:5px 6px;vertical-align:middle}
 .chk tr.done th{background:#fcfaf6}
@@ -61,12 +61,12 @@ body.dockOff #dock{display:none}
 /* 結果 */
 .result{margin-top:1rem;border:2px solid var(--ink);padding:10px 12px 12px;scroll-margin-top:8px}
 .result[hidden]{display:none}
-.result .score{font-size:13px;color:var(--sub);margin:0}
+.result .score{font-size:14px;color:var(--sub);margin:0}
 .result .big{font-size:20px;font-weight:700;margin:.1rem 0 .5rem;line-height:1.4}
 .todo{margin:0;font-size:15px}
 .todo td.n{width:2.2em;text-align:center;font-weight:700}
 .todo td b{display:block}
-.todo td .how{font-size:13.5px;color:var(--sub);display:block;margin-top:2px}
+.todo td .how{font-size:14px;color:var(--sub);display:block;margin-top:2px}
 .todo td a{font-size:14px}
 .result .rest{font-size:14px;margin:.6rem 0 0}
 .result .next{font-size:15px;margin:.8rem 0 0;padding-top:.6rem;border-top:1px solid var(--line-l)}
@@ -99,9 +99,9 @@ body.dockOff #dock{display:none}
 .faq details{border-bottom:1px solid var(--line-l);padding:.1rem 0}
 .faq summary{cursor:pointer;font-weight:700;padding:.55rem 0;font-size:15px;min-height:44px}
 .faq p{margin:0 0 .7rem;font-size:15px}
-.sources{font-size:13px;color:var(--sub)}
+.sources{font-size:14px;color:var(--sub)}
 .sources li{margin:0 0 .35rem;word-break:break-all}
-.author{margin:2.2rem 0 0;padding:.6rem 0 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--sub)}
+.author{margin:2.2rem 0 0;padding:.6rem 0 0;border-top:1px solid var(--line);font-size:14px;color:var(--sub)}
 .author p{margin:.2rem 0 0}
 .related{max-width:760px;margin:2rem auto 0;padding:0 16px;font-size:14.5px}
 .related b{display:block;border-bottom:2px solid var(--ink);padding-bottom:.25rem;margin-bottom:.2rem}
@@ -125,13 +125,13 @@ body.dockOff #dock{display:none}
 .seg button:hover{background:#f7f3ec}
 .seg button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);position:relative;z-index:1;font-weight:700}
 .todo tr.win td{font-weight:700;background:var(--head)}
-.todo th{font-size:13.5px}
+.todo th{font-size:14px}
 
 /* 統一フッター（CSPでstyle属性を使えないのでクラスで） */
-footer.uf{text-align:center;padding:2rem 1rem 2.5rem;font-size:.78rem;color:#94a3b8;line-height:2;border-top:1px solid #f0e6d2;margin-top:2.5rem;background:#fffcf7}
-footer.uf .uf-name{font-weight:800;color:#8b6b3d;font-size:.85rem;margin-bottom:.4rem}
+footer.uf{text-align:center;padding:2rem 1rem 2.5rem;font-size:.875rem;color:#607490;line-height:2;border-top:1px solid #f0e6d2;margin-top:2.5rem;background:#fffcf7}
+footer.uf .uf-name{font-weight:800;color:#8b6b3d;font-size:.875rem;margin-bottom:.4rem}
 footer.uf a{color:#8b6b3d;text-decoration:none;margin:0 .5rem;display:inline-block;padding:4px 0}
-footer.uf .uf-c{margin-top:.5rem;color:#bfa97a}
+footer.uf .uf-c{margin-top:.5rem;color:#846e40}
 body.hasDock footer.uf{padding-bottom:calc(2.5rem + 72px)}
 
 /* スマホで「いいえ」を折らない・上部を詰める */
@@ -139,7 +139,7 @@ body.hasDock footer.uf{padding-bottom:calc(2.5rem + 72px)}
 @media(max-width:480px){
   .site-in{padding:6px 12px}
   .site-name{font-size:14px}
-  .site-nav{font-size:13px;width:100%;display:flex;flex-wrap:wrap;gap:0 12px}
+  .site-nav{font-size:14px;width:100%;display:flex;flex-wrap:wrap;gap:0 12px}
   .site-nav a{margin-left:0;padding:3px 0}
   .wrap{padding-top:10px}
   h1{font-size:18.5px}
@@ -160,38 +160,38 @@ body.hasDock footer.uf{padding-bottom:calc(2.5rem + 72px)}
 .case.on{background:linear-gradient(var(--head),var(--head)) left top/4px 100% no-repeat;padding-left:12px}
 
 /* 2段階認証の棚卸し */
-.pickSvc th{width:7.5em;font-size:13.5px}
+.pickSvc th{width:7.5em;font-size:14px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips button{font:inherit;font-size:14px;line-height:1.3;min-height:44px;padding:6px 10px;background:#fff;color:var(--ink);border:1px solid var(--line);cursor:pointer}
 .chips button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
 .svc td{vertical-align:middle}
 .svc td b{display:block}
-.svc td .how{display:block;font-size:13px;color:var(--sub)}
+.svc td .how{display:block;font-size:14px;color:var(--sub)}
 .svc a.go{display:inline-block;padding:10px 0 4px;font-size:14.5px}
 .svc td.st{width:6.5em;text-align:center}
 .svc button.mk{font:inherit;font-size:14px;min-height:44px;width:100%;background:#fff;border:1px solid var(--line);cursor:pointer;color:var(--ink)}
 .svc button.mk[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
 .svc tr.ok td{background:#faf8f4}
-@media(max-width:480px){.pickSvc th{width:5.2em;padding:6px 5px;font-size:12.5px}.pickSvc td{padding:5px}.chips button{font-size:13.5px;padding:6px 8px}}
+@media(max-width:480px){.pickSvc th{width:5.2em;padding:6px 5px;font-size:14px}.pickSvc td{padding:5px}.chips button{font-size:14px;padding:6px 8px}}
 .note .again{display:block;margin-top:6px}
 
 /* 見分けトレーニング */
 .quiz{scroll-margin-top:8px}
-.q-prog{font-size:13.5px;color:var(--sub);margin:0 0 .3rem}
+.q-prog{font-size:14px;color:var(--sub);margin:0 0 .3rem}
 .msg{border:1px solid var(--line);background:#f6f6f4;padding:10px 12px;margin:0 0 .6rem}
 .msg p{margin:0 0 .3rem}
-.msg .m-kind{font-size:12.5px;color:var(--sub)}
+.msg .m-kind{font-size:14px;color:var(--sub)}
 .msg .m-body{font-size:16px;line-height:1.6}
-.msg .m-link{font-size:13.5px;color:#0b57a4;text-decoration:underline dotted;margin:0}
+.msg .m-link{font-size:14px;color:#0b57a4;text-decoration:underline dotted;margin:0}
 .q-ask{font-weight:700;margin:.2rem 0 .4rem}
 .opts{display:flex;flex-direction:column;gap:8px}
 .opts button{font:inherit;font-size:15px;line-height:1.45;text-align:left;min-height:48px;padding:9px 12px;background:#fff;color:var(--ink);border:1px solid var(--line);cursor:pointer}
 .opts button:hover:not(:disabled){background:#f7f3ec}
 .opts button:disabled{cursor:default}
 .opts button.right{border:2px solid #1d6b33;background:#eef7f0;font-weight:700}
-.opts button.right::before{content:"正しい理由　";color:#1d6b33;font-size:12.5px;font-weight:700}
+.opts button.right::before{content:"正しい理由　";color:#1d6b33;font-size:14px;font-weight:700}
 .opts button.wrong{border:2px solid var(--warn);background:#fbefe9}
-.opts button.wrong::before{content:"あなたの答え　";color:var(--warn);font-size:12.5px;font-weight:700}
+.opts button.wrong::before{content:"あなたの答え　";color:var(--warn);font-size:14px;font-weight:700}
 .fb{margin:.6rem 0 0;padding:.5rem 0 0;border-top:1px solid var(--line-l);font-size:15px}
 .fb[hidden]{display:none}
 .fb .fb-h{font-weight:700;margin:0 0 .3rem}
@@ -227,3 +227,6 @@ th{background:var(--k-kinari)}
 .btn:active{transform:translate(3px,3px);box-shadow:none}
 .again{background:var(--k-kinari);color:var(--k-sumi);border:var(--k-bw-s) solid var(--k-sumi);border-radius:var(--k-r);box-shadow:var(--k-sh-s);font-weight:700}
 .again:active{transform:translate(3px,3px);box-shadow:none}
+/* 読みやすさ 2026-10-21（字14px以上・明暗差4.5:1以上） */
+#dock button:disabled{color:#5c5247}
+/* /読みやすさ */
