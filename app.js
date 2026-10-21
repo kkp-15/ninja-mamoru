@@ -59,10 +59,10 @@
     $('rRest').textContent = r.rest.length ? 'ほかに「いいえ」だったもの: ' + r.rest.map(function (it) { return it.todo; }).join('／') + '。上の3つが終わってから。' : '';
     var needPm = ans.pm === 0 || ans.reuse === 0;
     $('rNext').innerHTML = needPm
-      ? 'サイトごとに違うパスワードを覚えるのは無理なので、管理アプリに任せます。無料のGoogle・Appleで始めても構いません。<br><a class="btn" href="/password/" id="nextLink">パスワード管理アプリの選び方を見る</a>'
+      ? 'パスワードを覚えるのは管理アプリに任せます。無料のGoogle・Appleで始めても構いません。<br><a class="btn" href="/password/" id="nextLink">パスワード管理アプリの選び方を見る</a>'
       : (r.level === 'all'
-        ? '次は、使っているサービスの2段階認証を1つずつ確かめると、さらに固くなります。<br><a class="btn" href="/nidankai/" id="nextLink">2段階認証の棚卸しへ</a>'
-        : 'リンクから開かない練習には、実際の手口で見分けるトレーニングが役に立ちます。<br><a class="btn" href="/sagi/" id="nextLink">詐欺メール・SMSの見分けトレーニング</a>');
+        ? '次は、使っているサービスの2段階認証を1つずつ確かめます。<br><a class="btn" href="/nidankai/" id="nextLink">2段階認証の棚卸しへ</a>'
+        : '実際の手口で、リンクから開かない練習ができます。<br><a class="btn" href="/sagi/" id="nextLink">詐欺メール・SMSの見分けトレーニング</a>');
     if (!sentDone) { sentDone = true; window.mamoruEvent && mamoruEvent('mamoru_check_done'); }
   }
 
