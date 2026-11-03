@@ -231,19 +231,28 @@ th{background:var(--k-kinari)}
 #dock button:disabled{color:#5c5247}
 /* /読みやすさ */
 
-/* パスワードを作る */
-.pwbox{border:2px solid var(--ink);padding:12px 12px 10px;margin:.4rem 0 1rem;scroll-margin-top:8px}
-.pwout{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:22px;line-height:1.45;font-weight:700;letter-spacing:.02em;word-break:break-all;margin:0 0 .3rem;user-select:all}
+/* パスワードを作る（2026-11-03 トップの結果の枠・はい/いいえの表と同じ見た目にそろえた） */
+.pwbox{background:var(--k-kinari) url(/kit/img/d4-washi.webp) 0 0/320px auto;border:var(--k-bw) solid var(--k-sumi);border-radius:var(--k-r);box-shadow:var(--k-sh-l);padding:12px 12px 14px;margin:.6rem 4px 1.2rem 0;scroll-margin-top:8px}
+.pwout{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:22px;line-height:1.45;font-weight:700;letter-spacing:.03em;word-break:break-all;margin:0 0 .4rem;padding:8px 10px;background:#fff;border:1px solid rgba(31,26,23,.35);user-select:all}
 .pwmeta{font-size:14px;color:var(--sub);margin:0}
 .pwmeta b{color:var(--ink)}
 .pwmeta b.g-top,.pwmeta b.g-good{color:#1d6b2f}
 .pwmeta b.g-mid{color:var(--ink)}
 .pwmeta b.g-low{color:var(--warn)}
-.pwbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:.4rem}
-.pwbtns .btn{margin:0;font:inherit;font-weight:700;cursor:pointer;min-width:7em}
-.pwbtns .again{margin:0}
-.pwopt{margin-top:8px}
+.pwbtns{display:flex;gap:10px;align-items:center;margin-top:.6rem;max-width:440px}
+.pwbtns .btn{flex:1 1 60%;margin:0;font:inherit;font-weight:700;font-size:16px;cursor:pointer;color:#fff}
+.pwbtns .again{flex:1 1 40%;margin:0;font-size:15px;white-space:nowrap;padding:.45rem .6rem}
+#copyMsg:empty{display:none}
 .tool tr[hidden]{display:none}
-@media(max-width:480px){.pwout{font-size:19px}}
-.pwopt button[aria-pressed="true"]::before{content:"✓ "}
-.pwopt button[aria-pressed="false"]{color:var(--sub)}
+/* 付ける・付けない＝チェック欄（押した所だけ黒くしない。はい/いいえと見分ける） */
+.pwopt{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px}
+.pwopt button{display:flex;align-items:center;gap:7px;text-align:left;background:#fff;border:1px solid rgba(31,26,23,.35);margin:0 0 -1px -1px;font-weight:400;color:var(--sub)}
+.pwopt button::before{content:"";flex:0 0 18px;height:18px;border:2px solid #8a8076;background:#fff;box-sizing:border-box;line-height:14px;text-align:center;font-size:13px;font-weight:700}
+.pwopt button[aria-pressed="true"]{background:#fff;color:var(--ink);border-color:rgba(31,26,23,.35);font-weight:700}
+.pwopt button[aria-pressed="true"]::before{content:"✓";background:var(--k-sumi);border-color:var(--k-sumi);color:#fff}
+@media(max-width:480px){
+  .pwout{font-size:19px}
+  .pwtool th,.pwtool td{display:block;width:auto}
+  .pwtool th{border-bottom:0;padding:5px 10px}
+  .pwtool td{padding:6px}
+}
