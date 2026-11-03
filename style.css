@@ -230,3 +230,20 @@ th{background:var(--k-kinari)}
 /* 読みやすさ 2026-10-21（字14px以上・明暗差4.5:1以上） */
 #dock button:disabled{color:#5c5247}
 /* /読みやすさ */
+
+/* パスワードを作る */
+.pwbox{border:2px solid var(--ink);padding:12px 12px 10px;margin:.4rem 0 1rem;scroll-margin-top:8px}
+.pwout{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:22px;line-height:1.45;font-weight:700;letter-spacing:.02em;word-break:break-all;margin:0 0 .3rem;user-select:all}
+.pwmeta{font-size:14px;color:var(--sub);margin:0}
+.pwmeta b{color:var(--ink)}
+.pwmeta b.g-top,.pwmeta b.g-good{color:#1d6b2f}
+.pwmeta b.g-mid{color:var(--ink)}
+.pwmeta b.g-low{color:var(--warn)}
+.pwbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:.4rem}
+.pwbtns .btn{margin:0;font:inherit;font-weight:700;cursor:pointer;min-width:7em}
+.pwbtns .again{margin:0}
+.pwopt{margin-top:8px}
+.tool tr[hidden]{display:none}
+@media(max-width:480px){.pwout{font-size:19px}}
+.pwopt button[aria-pressed="true"]::before{content:"✓ "}
+.pwopt button[aria-pressed="false"]{color:var(--sub)}

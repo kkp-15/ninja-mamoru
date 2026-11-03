@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>パスワードを作る｜送信しない・保存しない無料の作成ツールと安全度チェック</title>
+<meta name="description" content="強いパスワードの案をその場で作ります。おまかせ（ランダム）・Appleと同じ形・覚えやすい英単語つなぎの3種類。作った文字は送信も保存もしません。いまのパスワードは打ち込まず、はい/いいえだけで安全度を確かめられます。">
+<link rel="canonical" href="https://mamoru.kkpwebninja.com/password/tsukuru/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#e2600f">
+<!-- WEBNINJA_UNIFIED_FAVICON -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="パスワードを作る｜送信しない・保存しない作成ツール">
+<meta property="og:description" content="強いパスワードの案をその場で作ります。作った文字は送信も保存もしません。いまのパスワードは、はい/いいえだけで確かめられます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamoru.kkpwebninja.com/password/tsukuru/">
+<meta property="og:site_name" content="サイバー攻撃・個人情報流出から自分を守る">
+<meta property="og:image" content="https://mamoru.kkpwebninja.com/ogp.jpg?d=20261023b">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mamoru.kkpwebninja.com/ogp.jpg?d=20261023b">
+<script src="/ga.js"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebApplication","@id":"https://mamoru.kkpwebninja.com/password/tsukuru/#app","name":"パスワードを作る","url":"https://mamoru.kkpwebninja.com/password/tsukuru/","applicationCategory":"SecurityApplication","operatingSystem":"Web","inLanguage":"ja","description":"強いパスワードの案をブラウザの中だけで作る無料ツール。作った文字は送信も保存もしない。いまのパスワードの安全度は、はい/いいえで確かめる。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"datePublished":"2026-11-03","author":{"@type":"Organization","name":"web忍者の砦"},"publisher":{"@type":"Organization","name":"web忍者の砦","url":"https://kkpwebninja.com/"}},
+    {"@type":"FAQPage","@id":"https://mamoru.kkpwebninja.com/password/tsukuru/#faq","mainEntity":[
+      {"@type":"Question","name":"作ったパスワードは、どこかに送られたり残ったりしませんか？","acceptedAnswer":{"@type":"Answer","text":"送りません。保存もしません。パスワードはこのページを開いた端末のブラウザの中で作り、画面に出すだけです。ページを開いたあとに機内モードにしても作れます。"}},
+      {"@type":"Question","name":"記号を入れないと弱いですか？","acceptedAnswer":{"@type":"Answer","text":"長さのほうが効きます。総務省の一般向けページは10文字以上で数字や記号がまざるのが好ましいとし、米国のNISTの基準は文字の種類をまぜる決まりを課さないよう求めています。サイトに記号を求められたときだけ入れれば十分です。"}},
+      {"@type":"Question","name":"作ったパスワードはどう覚えればいいですか？","acceptedAnswer":{"@type":"Answer","text":"覚えずに、パスワード管理アプリ（Google・Appleの無料のもの、1Passwordなど）に保存するのがおすすめです。頭で覚える必要があるのは、管理アプリやスマホを開くためのものだけです。それには「覚える用」の英単語つなぎが向いています。"}}
+    ]}
+  ]
+}
+</script>
+<link rel="stylesheet" href="/kit/kit.css?v=24214b5">
+<link rel="stylesheet" href="/style.css?v=20261103pw">
+<script src="/kit/kit.js?v=24214b5" defer></script>
+</head>
+<body>
+<div class="site"><div class="site-in">
+  <a class="site-name" href="/">サイバー攻撃・個人情報流出から自分を守る</a>
+  <nav class="site-nav"><a href="/">守り度チェック</a><a href="/nidankai/">2段階認証</a><a href="/sagi/">詐欺メール</a><a href="/password/" aria-current="page">パスワード</a><a href="/komattara/">困ったとき</a></nav>
+</div></div>
+<div class="wrap">
+<header>
+  <h1>パスワードを作る</h1>
+  <p class="lead">押すたびに新しい案が出ます。<b>この画面の中だけで作り、送信も保存もしません。</b>本物のパスワードを打ち込む欄もありません。</p>
+</header>
+
+<main>
+<section class="pwbox" id="pwTop" aria-label="パスワードの案">
+  <p class="pwout" id="pwOut" aria-live="polite"></p>
+  <p class="pwmeta"><span id="pwLen"></span>・強さ <b id="pwGrade"></b>（<span id="pwBits"></span>）</p>
+  <div class="pwbtns">
+    <button type="button" class="btn" id="copy">コピー</button>
+    <button type="button" class="again" id="again">別の案を出す</button>
+  </div>
+  <p class="note" id="copyMsg" aria-live="polite"></p>
+</section>
+
+<table class="tool" aria-label="作り方">
+  <tr><th>種類</th><td><div class="seg" id="typePick">
+    <button type="button" data-v="random">おまかせ</button><button type="button" data-v="apple">Appleと同じ形</button><button type="button" data-v="words">覚える用</button>
+  </div></td></tr>
+  <tr id="optRandom"><th>長さ</th><td>
+    <div class="seg" id="lenPick"><button type="button" data-v="12">12</button><button type="button" data-v="16">16</button><button type="button" data-v="20">20</button><button type="button" data-v="24">24</button><button type="button" data-v="32">32</button></div>
+    <div class="chips pwopt">
+      <button type="button" id="o_upper">大文字</button><button type="button" id="o_digit">数字</button><button type="button" id="o_symbol">記号 !@#$%^&amp;*</button><button type="button" id="o_plain">見分けにくい文字を除く</button>
+    </div>
+  </td></tr>
+  <tr id="optWords" hidden><th>単語の数</th><td>
+    <div class="seg" id="nPick"><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6</button><button type="button" data-v="7">7</button></div>
+    <div class="chips pwopt"><button type="button" id="o_cap">頭を大文字</button><button type="button" id="o_num">数字を1つ</button></div>
+  </td></tr>
+  <tr id="optApple" hidden><th>形</th><td class="note">6文字×3をハイフンでつないだ20文字（大文字1つ・数字1つ）。iPhoneやMacが自動で作る強いパスワードと同じ形です。Apple自身はこの形を71ビットと説明しています。このページは1文字ずつ自由に選ぶので、同じ形でも数字が大きく出ます。</td></tr>
+</table>
+
+<div class="point"><b>どれを選べばいい？</b>
+<ul>
+  <li><b>管理アプリに保存する</b>なら「おまかせ」の16文字以上。覚える必要はありません。</li>
+  <li><b>サイトに記号を断られた</b>ら、「記号」を外して長さを1段上げてください。</li>
+  <li><b>自分で覚えて打つ</b>もの（管理アプリやパソコンを開くパスワード）は「覚える用」。関係のない英単語をつなぐのは、総務省の一般向けページが勧めている作り方です。</li>
+</ul></div>
+
+<h2 id="check">いまのパスワード、大丈夫？</h2>
+<p>パスワードそのものは打ち込みません。<b>はい/いいえ</b>を押すだけで、変えたほうがよいかと、やる順番が分かります。</p>
+<table class="chk" id="ck" aria-label="いまのパスワードの確かめ">
+  <tr><th><span class="no">1</span>10文字以上ある？<small>できれば15文字以上</small></th><td><div class="yn" data-q="len"><button type="button" data-v="1">はい</button><button type="button" data-v="0">いいえ</button></div></td></tr>
+  <tr><th><span class="no">2</span>ほかのサイトでも同じものを使っている？<small>少し変えただけ（末尾の数字だけ違う等）も同じです</small></th><td><div class="yn" data-q="reuse"><button type="button" data-v="1">はい</button><button type="button" data-v="0">いいえ</button></div></td></tr>
+  <tr><th><span class="no">3</span>名前・誕生日・電話番号・ペットの名前が入っている？</th><td><div class="yn" data-q="personal"><button type="button" data-v="1">はい</button><button type="button" data-v="0">いいえ</button></div></td></tr>
+  <tr><th><span class="no">4</span>「123456」「password」「qwerty」のような並びが入っている？</th><td><div class="yn" data-q="common"><button type="button" data-v="1">はい</button><button type="button" data-v="0">いいえ</button></div></td></tr>
+  <tr><th><span class="no">5</span>流出の知らせや「パスワードが漏れています」の警告が来た？<small>そのサービスや、Google・Apple・管理アプリから</small></th><td><div class="yn" data-q="leaked"><button type="button" data-v="1">はい</button><button type="button" data-v="0">いいえ</button></div></td></tr>
+  <tr><th><span class="no">6</span>そのサービスに2段階認証を付けている？</th><td><div class="yn" data-q="twofa"><button type="button" data-v="1">はい</button><button type="button" data-v="0">いいえ</button></div></td></tr>
+</table>
+<p class="note">答えはこの画面の中だけで使い、保存も送信もしません。</p>
+
+<section class="result" id="ckResult" hidden aria-live="polite">
+  <p class="score">いまのパスワードの見立て</p>
+  <p class="big" id="ckBig"></p>
+  <table class="todo"><tbody id="ckTodo"></tbody></table>
+  <p class="next">変えるときは、<a href="#pwTop">上で作った案</a>をそのまま使えます。作ったら<a href="/password/">管理アプリ</a>に保存しておくと、覚えなくて済みます。2段階認証は<a href="/nidankai/">サービスごとの付け方</a>へ。</p>
+  <button type="button" class="again" id="ckReset">答えをやり直す</button>
+</section>
+
+<h2 id="anshin">安心して使ってもらうために</h2>
+<ul>
+  <li><b>送らない・残さない:</b> パスワードはブラウザに入っている暗号用の乱数（crypto.getRandomValues）で、この端末の中で作ります。サーバーに送る仕組みはありません。ページを開いたあとに機内モードにしても作れます。</li>
+  <li><b>打ち込ませない:</b> 本物のパスワードを入れる欄はありません。いまのパスワードの確かめも、はい/いいえだけです。</li>
+  <li><b>広告なし:</b> このサイトには広告を置いていません。数えているのは「コピーされた回数」などの回数だけで、作った文字や答えは数えていません。</li>
+</ul>
+
+<h2 id="kijun">強さの目安と、大手の作り方</h2>
+<div class="scroll"><table class="cmp">
+  <tr><th>作り方</th><th>形</th><th>強さの目安</th></tr>
+  <tr><th>Apple（iPhone・Mac）</th><td>20文字。小文字16・大文字1・数字1・ハイフン2</td><td>Appleは71ビットと説明</td></tr>
+  <tr><th>1Password</th><td>ランダム・覚えやすい単語・PINの3種類から選ぶ</td><td>「ランダムで、サイトごとに別」が一番の守りと説明</td></tr>
+  <tr><th>Bitwarden</th><td>パスワード、または単語をつなぐパスフレーズ</td><td>数字・記号の最低数は0〜1でよいと説明</td></tr>
+  <tr><th>EFFの単語リスト</th><td>7,776語から選んでつなぐ</td><td>6語で約77ビット</td></tr>
+</table></div>
+<p>このページの「強さ」は、作り方から何通りあり得るかを2の何乗（ビット）で表したものです。80ビット以上を「とても強い」、60以上を「強い」、45以上を「ふつう」としています（このページの目安）。長さを1文字増やすと、記号まじりなら約6ビット強くなります。</p>
+<p>長さの基準: 総務省の一般向けページは「最低でも10文字以上」。米国のNIST（SP 800-63B-4）は、パスワードだけでログインする場合は15文字以上、2段階認証と組み合わせる場合は8文字以上を求め、文字の種類をまぜる決まりを課さないよう定めています。</p>
+
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<details><summary>作ったパスワードは、どこかに送られたり残ったりしませんか？</summary><p>送りません。保存もしません。パスワードはこのページを開いた端末のブラウザの中で作り、画面に出すだけです。ページを開いたあとに機内モードにしても作れます。</p></details>
+<details><summary>記号を入れないと弱いですか？</summary><p>長さのほうが効きます。総務省の一般向けページは10文字以上で数字や記号がまざるのが好ましいとし、米国のNISTの基準は文字の種類をまぜる決まりを課さないよう求めています。サイトに記号を求められたときだけ入れれば十分です。</p></details>
+<details><summary>作ったパスワードはどう覚えればいいですか？</summary><p>覚えずに、パスワード管理アプリ（Google・Appleの無料のもの、1Passwordなど）に保存するのがおすすめです。選び方は<a href="/password/">パスワード管理アプリのページ</a>にあります。頭で覚える必要があるのは、管理アプリやスマホを開くためのものだけです。それには「覚える用」の英単語つなぎが向いています。</p></details>
+<details><summary>コピーしたパスワードは残りますか？</summary><p>コピーした文字は、ほかの文字をコピーするまで端末のクリップボードに残ります。貼り付けたあとは、何かほかの文字をコピーしておくと安心です。</p></details>
+</section>
+
+<h2 id="shutten">出典（確認日 2026年11月3日）</h2>
+<ul class="sources">
+  <li>総務省「国民のためのサイバーセキュリティサイト」安全なパスワードの設定・管理 https://www.soumu.go.jp/main_sosiki/cybersecurity/kokumin/security/end_user/general/01/</li>
+  <li>Apple「自動作成される強力なパスワード」（Apple Platform Security） https://support.apple.com/guide/security/automatic-strong-passwords-secc84c811c4/web</li>
+  <li>1Password「Password generator」 https://1password.com/password-generator</li>
+  <li>Bitwarden「Password generator」ヘルプ https://bitwarden.com/help/generator/</li>
+  <li>NIST SP 800-63B-4 https://pages.nist.gov/800-63-4/sp800-63b.html</li>
+  <li>EFF「Dice-Generated Passphrases」と単語リスト（7,776語・6語で約77ビット。「覚える用」の単語はこのリストをそのまま使用。CC BY） https://www.eff.org/dice ・ https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases</li>
+</ul>
+
+<div class="author"><p>運営: web忍者の砦。数字と手順は各社・公的機関の公式ページで確かめ、確認日を付けています。このページは、作ったパスワードや答えを送信・保存しません。<a href="https://privacypolicy.kkpwebninja.com/" target="_blank" rel="noopener">プライバシーポリシー</a></p></div>
+</main>
+</div>
+<nav class="related" aria-label="関連ページ"><b>あわせて見る</b>
+  <a href="/password/">パスワード管理アプリはどれを選ぶ（1Passwordの総額くらべ）</a>
+  <a href="/nidankai/">2段階認証をサービスごとに付ける</a>
+  <a href="/komattara/">流出の知らせが来た・入力してしまったとき</a>
+</nav>
+<footer class="uf">
+  <div class="uf-name">web忍者の砦</div>
+  <div><a href="https://kkpwebninja.com/" target="_blank" rel="noopener">本丸トップ</a>·<a href="https://privacypolicy.kkpwebninja.com/" target="_blank" rel="noopener">プライバシーポリシー</a>·<a href="https://kkpwebninja.com/otoiawase" target="_blank" rel="noopener">お問い合わせ</a></div>
+  <div class="uf-c">© 2025-2026 web忍者の砦</div>
+</footer>
+<script src="/password/tsukuru/words.js"></script>
+<script src="/password/tsukuru/pwgen.js"></script>
+</body>
+</html>

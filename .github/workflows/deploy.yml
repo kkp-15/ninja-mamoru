@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: "20"
       - name: チェックの判定テスト
-        run: node tests/check.test.mjs && node tests/compare.test.mjs && node tests/quiz.test.mjs
+        run: node tests/check.test.mjs && node tests/compare.test.mjs && node tests/quiz.test.mjs && node tests/pwgen.test.mjs
       - name: 配信前に非公開ファイルを削除
         # Pages は .assetsignore を読まない。出典メモ・作業ルール・テストは配信しない
         run: rm -rf ./*.md .claude .github .gitignore .assetsignore wrangler.jsonc .wrangler tests _dev
