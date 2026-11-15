@@ -17,6 +17,10 @@
 .custom[open] summary{border-bottom:1px solid var(--line)}
 .custom .tool{margin:0;border:0}
 .custom > .note{padding:.5rem .8rem 0}
+.custom .read{margin:.6rem .8rem .2rem 0;font-size:15.5px}
+.custom .read li{margin:0 0 .6rem}
+.custom .read li b{display:block;font-weight:700;color:var(--ink)}
+.custom + .custom{margin-top:-.41rem}
 .tool.note th{width:5.6em;padding:6px 8px;font-size:14.5px}
 .tool.note .chips{gap:6px}
 .chips.opt{margin:2px 0}

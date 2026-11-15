@@ -31,6 +31,8 @@ assert.ok(/<details class="custom" id="custom">/.test(page), '選ぶ項目は折
 assert.ok(!/style="/.test(page) && !/<style/.test(page), 'CSPで使えない書き方');
 const ext = [...page.matchAll(/href="(https?:\/\/[^"]+)"/g)].map(m => new URL(m[1]).hostname).filter(h => h !== 'mamoru.kkpwebninja.com');
 assert.deepEqual([...new Set(ext)].sort(), ['kkpwebninja.com', 'privacypolicy.kkpwebninja.com']);
+assert.ok(!/リベ|学長|両/.test(page), '会員限定の情報源の名前が出ている');
+assert.ok(/<details class="custom" id="kangae">/.test(page) && /id="motto"/.test(page), '考え方とコツは読みたい人だけ開ける形');
 const js = readFileSync(new URL('../password/note/note.js', import.meta.url), 'utf8');
 assert.ok(!/localStorage|fetch\(|XMLHttpRequest|sendBeacon/.test(js), '保存や送信がある');
 console.log('note.test: ok');
