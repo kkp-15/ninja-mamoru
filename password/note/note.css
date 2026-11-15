@@ -107,3 +107,24 @@
 .lead{font-size:16.5px}
 .nextline p{font-size:15.5px;color:var(--ink)}
 .custom .read{font-size:16.5px}
+
+/* 主役の2つ目: 新しいパスワードを作る（見本と手順のすぐ下に、開かずに見える形で） */
+.pwcard{border:2px solid var(--ink);background:#fff;padding:.8rem .9rem .7rem;margin:1.3rem 0 .4rem}
+.pwcard-h{font-size:19px;font-weight:700;margin:0 0 .5rem;padding:0;border:0;line-height:1.4}
+.pwcard .pwout{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:clamp(17px,5vw,22px);font-weight:700;letter-spacing:.02em;line-height:1.4;margin:0 0 .5rem;padding:.5rem .6rem;white-space:nowrap;overflow:hidden;border:1px solid var(--line);background:#fffdf8;word-break:break-all}
+.pwcard-b{margin:0 0 .5rem}
+.pwcard-b .btn.big{margin:0;font-size:18px;min-height:54px}
+.pwcard-n{font-size:15.5px;line-height:1.7;margin:0;color:var(--ink)}
+
+/* 主役の2つ（印刷・作る）を最初の画面に: スマホは見本を上半分だけ見せ、PCは見本を左・手順と作る箱を右に */
+.pvwrap{position:relative;max-height:calc((min(100vw, 760px) - 50px) * .76);overflow:hidden}
+.pvwrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(244,241,236,0),#f4f1ec)}
+.easy{margin-top:.6rem}
+.pwcard{margin-top:1rem}
+@media(min-width:900px){
+  .top2{display:grid;grid-template-columns:330px minmax(0,1fr);gap:26px;align-items:start}
+  .top2 .pvwrap{max-height:none;margin:0}
+  .top2 .pvwrap::after{display:none}
+  .top2 .pv{font-size:calc(312px / 210)}
+  .top2 .easy{margin-top:0}
+}

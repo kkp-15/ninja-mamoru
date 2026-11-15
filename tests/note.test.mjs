@@ -45,15 +45,15 @@ assert.ok(/<details class="custom" id="custom">/.test(page), '選ぶ項目は折
 assert.ok(!/style="/.test(page) && !/<style/.test(page), 'CSPで使えない書き方');
 const ext = [...page.matchAll(/href="(https?:\/\/[^"]+)"/g)].map(m => new URL(m[1]).hostname).filter(h => h !== 'mamoru.kkpwebninja.com');
 assert.deepEqual([...new Set(ext)].sort(), ['kkpwebninja.com', 'privacypolicy.kkpwebninja.com']);
-// 価格は管理アプリのページ（compare.js）と同じ数字で書く
-const cmp = readFileSync(new URL('../password/compare.js', import.meta.url), 'utf8');
-for (const yen of ['17980', '27980']) assert.ok(cmp.includes(yen) && page.includes(Number(yen).toLocaleString('ja-JP') + '円'), '価格が compare.js と合わない: ' + yen);
-assert.ok(/id="noteCta" href="\/password\/"/.test(page), '次の一歩はサイト内の総額くらべへ');
+// 主役は印刷と作成。管理アプリ（1Password）は大きなボタンや箱で出さない（ユーザー指示 2026-11-15）
+const mainTop = page.split('<main>')[1].split('</main>')[0].split('id="more"')[0];
+assert.ok(!/1Password|17,980|noteCta/.test(mainTop), '主役の所に1Passwordが出ている');
+assert.ok(/<section class="pwcard" id="tsukuru"/.test(page) && page.indexOf('id="tsukuru"') < page.indexOf('id="rei"'), 'パスワードを作る箱は、開かずに見える所にある');
 assert.ok(!/リベ|学長|両/.test(page), '会員限定の情報源の名前が出ている');
 // メインを前に: 見出し（h2）を本文に並べない。読み物は「くわしく読む」の中
-assert.ok(!/<h2/.test(page.split('<main>')[1].split('</main>')[0]), '本文に大きな見出しが出ている');
+assert.equal((page.split('<main>')[1].split('</main>')[0].match(/<h2/g) || []).length, 1, '本文の大きな見出しは「新しいパスワードを作る」の1つだけ');
 assert.ok(/<details class="custom more" id="more">/.test(page) && page.indexOf('id="more"') < page.indexOf('id="shimau"'), '読み物は折りたたみの中');
-assert.ok(/id="kangae"/.test(page) && /id="motto"/.test(page) && /id="rei"/.test(page) && /id="tsukuru"/.test(page), '考え方・コツ・記入例・案は読みたい人だけ開ける形');
+assert.ok(/id="kangae"/.test(page) && /id="motto"/.test(page) && /id="rei"/.test(page), '考え方・コツ・記入例は読みたい人だけ開ける形');
 // 画面の部品が js と合っている（消した部品を js が探していない）
 const js = readFileSync(new URL('../password/note/note.js', import.meta.url), 'utf8');
 for (const m of js.matchAll(/\$\('([A-Za-z_]+)'\)/g)) assert.ok(page.includes('id="' + m[1] + '"'), 'ページに無い部品: ' + m[1]);
@@ -68,6 +68,7 @@ assert.ok(/script-src 'self' https:\/\/www\.googletagmanager\.com;/.test(hd) && 
 // 入口: パスワードの3ページの上に、行き来するタブがある（「どこに印刷があるかわからない」への対処）
 for (const f of ['../password/index.html', '../password/tsukuru/index.html', '../password/note/index.html']) {
   const h = readFileSync(new URL(f, import.meta.url), 'utf8');
-  assert.ok(/<nav class="subnav"[^>]*>.*href="\/password\/note\/"[^>]*>ノートを印刷<\/a>/.test(h), 'タブが無い: ' + f);
+  assert.ok(/<nav class="subnav"[^>]*><a href="\/password\/note\/"[^>]*>ノートを印刷<\/a><a href="\/password\/tsukuru\/"[^>]*>パスワードを作る<\/a><a href="\/password\/"[^>]*>管理アプリ<\/a>/.test(h), 'タブの並びが 印刷→作る→管理アプリ でない: ' + f);
+  assert.ok(/<a href="\/password\/note\/"[^>]*>パスワード<\/a>/.test(h), '上のメニューの行き先: ' + f);
 }
 console.log('note.test: ok');

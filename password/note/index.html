@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パスワード管理ノートを印刷して作る｜無料のA4用紙（変更の履歴も書ける）</title>
+<title>パスワード管理ノートを印刷して作る｜無料のA4用紙とパスワード作成</title>
 <meta name="description" content="パスワード管理ノートの用紙を、家のプリンターですぐ印刷できます。押すだけで、大きく書ける1枚4件の用紙が出ます。パスワードを変えた日を書き足す欄つき。画面には何も打ち込みません。お店で売り切れのときにも。しまう場所と書き方のコツ付き。">
 <link rel="canonical" href="https://mamoru.kkpwebninja.com/password/note/">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -35,30 +35,41 @@
 }
 </script>
 <link rel="stylesheet" href="/kit/kit.css?v=afa429f">
-<link rel="stylesheet" href="/style.css?v=20261115easy">
-<link rel="stylesheet" href="/password/note/note.css?v=20261115p">
+<link rel="stylesheet" href="/style.css?v=20261115main">
+<link rel="stylesheet" href="/password/note/note.css?v=20261115s">
 <script src="/kit/kit.js?v=afa429f" defer></script>
 </head>
 <body>
 <div class="site"><div class="site-in">
   <a class="site-name" href="/">サイバー攻撃・個人情報流出から自分を守る</a>
-  <nav class="site-nav"><a href="/">守り度チェック</a><a href="/nidankai/">2段階認証</a><a href="/sagi/">詐欺メール</a><a href="/password/" aria-current="page">パスワード</a><a href="/komattara/">困ったとき</a></nav>
+  <nav class="site-nav"><a href="/">守り度チェック</a><a href="/nidankai/">2段階認証</a><a href="/sagi/">詐欺メール</a><a href="/password/note/" aria-current="page">パスワード</a><a href="/komattara/">困ったとき</a></nav>
 </div></div>
 <div class="wrap">
 <p class="subnav-h">パスワードの道具（押すと切りかわります）</p>
-<nav class="subnav" aria-label="パスワードの道具"><a href="/password/">総額くらべ</a><a href="/password/tsukuru/">パスワードを作る</a><a href="/password/note/" aria-current="page">ノートを印刷</a></nav>
+<nav class="subnav" aria-label="パスワードの道具"><a href="/password/note/" aria-current="page">ノートを印刷</a><a href="/password/tsukuru/">パスワードを作る</a><a href="/password/">管理アプリ</a></nav>
 <header>
   <h1>パスワード管理ノートを印刷して作る</h1>
   <p class="lead">「印刷する」を押すだけ。<b>画面には何も打ち込みません。</b>お店で売り切れのときにも使えます。</p>
 </header>
 
 <main>
+<div class="top2">
 <div class="pvwrap" aria-label="用紙の見本（1枚目）"><div class="pv" id="pv"></div></div>
+<div class="top2-r">
 <ol class="easy">
   <li><b>印刷する</b><span>下の「印刷する」を押します。A4の紙に、たて向きで。</span></li>
   <li><b>手で書く</b><span>メール・銀行・買い物の順に。こすると消えるペンは使いません。</span></li>
   <li><b>家にしまう</b><span>通帳と同じ場所へ。持ち歩かず、ほかの人の目にふれない所に。</span></li>
 </ol>
+
+<section class="pwcard" id="tsukuru" aria-label="新しいパスワードを作る">
+  <h2 class="pwcard-h">新しいパスワードを作る</h2>
+  <p class="pwout" id="pwOut" aria-live="polite"></p>
+  <p class="pwcard-b"><button type="button" class="btn big" id="pwAgain">別の案を出す</button></p>
+  <p class="pwcard-n">この文字をサービスの「パスワードの変更」で入れて、同じものをノートに書き写します。見分けにくい文字（0と1、l・I・O）は入っていません。保存も送信もしません。長さや形を選ぶなら<a href="/password/tsukuru/">パスワードを作る</a>へ。</p>
+</section>
+</div>
+</div>
 
 <p class="sub">ほかにできること</p>
 <details class="custom" id="rei">
@@ -68,19 +79,6 @@
   <li><b>青い字が、書きこむ所の例です。</b>例の文字は作りものです。まねして使わないでください。</li>
   <li id="exOld"><b>パスワードを変えたら、古いものに線を引きます。</b>その下の「変えた日」と「新：」に、日付と新しいパスワードを書き足します。</li>
   <li><b>キャッシュカードの暗証番号は書きません。</b>このノートは、ネットのサービスに入るためのIDとパスワードの控えです。</li>
-</ul>
-</details>
-
-<details class="custom" id="tsukuru">
-<summary>新しいパスワードの案を出す</summary>
-<div class="pwmake">
-  <p class="pwout" id="pwOut" aria-live="polite"></p>
-  <p><button type="button" class="again" id="pwAgain">別の案を出す</button></p>
-</div>
-<ul class="read">
-  <li><b>使い方</b>サービスの「パスワードの変更」の画面でこの文字を入れて、同じものをノートに書き写します。</li>
-  <li><b>書き写しやすい形です。</b>6文字ずつ3つに区切った20文字で、見分けにくい文字（数字の0と1、英字のl・I・O）は入っていません。「-」もパスワードの一部です。</li>
-  <li><b>この画面の中だけで作ります。</b>作った文字は、保存も送信もしません。長さや形を選びたいときは<a href="/password/tsukuru/">パスワードを作る</a>へ。</li>
 </ul>
 </details>
 
@@ -106,15 +104,9 @@
   <li><b>紙が向いている人。</b>パソコンやスマホの操作が苦手な方、年配の方、管理アプリがむずかしいと感じる方です。家族のぶんを作ってあげるのにも使えます。</li>
   <li><b>家に置いて、外に持ち出さない。</b>かばんに入れて持ち歩くと、なくしたり、開いた所を見られたりします。</li>
   <li><b>ほかの人の目にふれない所にしまう。</b>来客や、家に出入りする人から見えない場所へ。机の上やパソコンの横に出したままにしません。</li>
-  <li><b>いちばん良いのは、アプリでの管理。</b>偽サイトに気づきやすく、なくしても戻せます。使えそうなら、<a href="/password/">管理アプリ</a>に進むのがおすすめです。紙は、その手前の一歩として十分に役に立ちます。</li>
+  <li><b>件数が増えてきたら、管理アプリも。</b>なくしても戻せて、偽サイトにも気づきやすくなります。無料のものと有料のものの違いは<a href="/password/">管理アプリのページ</a>にあります。紙のままで足りている方は、そのままで大丈夫です。</li>
 </ul>
 </details>
-
-<section class="nextline" aria-label="次の一歩">
-  <p><b>書く件数が増えてきたら</b>なくしても戻せて、偽サイトにも気づきやすい管理アプリへ。3年版は1か月あたり約500円（1人用17,980円・5人用27,980円。2026年10月9日確認）。</p>
-  <a class="btn" id="noteCta" href="/password/">1Passwordの総額をくらべる</a>
-</section>
-
 
 <details class="custom more" id="more">
 <summary>くわしく読む（しまう場所の決まり・管理のコツ・よくある質問・出典）</summary>
@@ -172,6 +164,6 @@
 </footer>
 <div id="dock"><div class="in"><span class="prog" id="dockSum"></span><button type="button" id="printBtn">印刷する</button></div></div>
 <div id="sheets" aria-hidden="true"></div>
-<script src="/password/note/note.js?v=20261115p"></script>
+<script src="/password/note/note.js?v=20261115q"></script>
 </body>
 </html>
