@@ -37,13 +37,13 @@
 </script>
 <!-- 共通部品 D4（kkp-kit を kit/ にコピーしたもの。中は手で直さず kkp-kit 側で直して sync.sh）。Web フォントは読まない -->
 <link rel="stylesheet" href="/kit/kit.css?v=afa429f">
-<link rel="stylesheet" href="/style.css?v=20261025ux">
+<link rel="stylesheet" href="/style.css?v=20261115talk">
 <script src="/kit/kit.js?v=afa429f" defer></script>
 </head>
 <body class="hasDock">
 <div class="site"><div class="site-in">
   <a class="site-name" href="/">サイバー攻撃・個人情報流出から自分を守る</a>
-  <nav class="site-nav"><a href="/">守り度チェック</a><a href="/nidankai/" aria-current="page">2段階認証</a><a href="/sagi/">詐欺メール</a><a href="/password/note/">パスワード</a><a href="/komattara/">困ったとき</a></nav>
+  <nav class="site-nav"><a href="/password/note/">パスワード</a><a href="/komattara/">困ったとき</a><a href="/sagi/">詐欺メール</a><a href="/">守り度チェック</a></nav>
 </div></div>
 <div class="wrap">
 <header>
@@ -59,7 +59,12 @@
 <div id="myList"></div>
 <p class="note">記録はこのブラウザの中（localStorage）だけに残ります。<button type="button" class="again" id="clearAll">この端末の記録を消す</button></p>
 
-<h2 id="naze">なぜ2段階認証なのか</h2>
+<h2 id="naze">なぜ2段階認証？ → パスワードが漏れても、入られにくくなるから</h2>
+<div class="talk">
+<p class="ask"><span>読んでいる人</span>2段階認証って、付けると何が変わるの？ どれから付ければいい？</p>
+<div class="say"><img src="/img/girl-phone-left.webp" width="240" height="230" alt="" loading="lazy" decoding="async"><p>パスワードのほかに、本人のスマホでの確認が要るようになります。まずメール、次にお金のサービスから。</p></div>
+</div>
+
 <p>2段階認証を付けると、<b>パスワードが漏れても入られにくく</b>なります。パスワードのほかに「本人のスマホでの承認」や「届いたコード」が要るからです。パスワードは、偽サイトへの入力やサービスからの流出で、気づかないうちに漏れることがあります。金融庁も、多要素認証（追加の認証）を有効にするよう呼びかけています。</p>
 <h3>順番はメール → お金 → そのほか</h3>
 <p>ほかのサービスの「パスワードを忘れた」の再設定はメールに届きます。だから最初はメールのアカウント。次に銀行・カード・証券・決済。SNSやゲームはそのあとで構いません。</p>
@@ -70,6 +75,15 @@
 </ul>
 <h3>呼び名が会社ごとに違う</h3>
 <p>LINEは「ログイン許可」、Yahoo! JAPANは「ワンタイムパスワード」、楽天カードは「第2パスワード」、メルカリやパスキー対応の証券は「パスキー」。上の一覧に各社の呼び名を書いています。</p>
+
+<div class="matome"><b>まとめと、次にやること</b>
+<ul>
+  <li>順番は、メール → お金（銀行・カード・証券・決済） → そのほか</li>
+  <li>設定したら、予備の手段（予備のコード・別の連絡先）も登録する</li>
+  <li>届いたコードやパスワードは、人に教えない</li>
+</ul>
+<p><b>次にやること：</b>上の一覧で、メールのサービスを1つ選んで設定のページを開いてみてください。</p>
+</div>
 
 <section class="faq" id="faq">
 <h2>よくある質問</h2>

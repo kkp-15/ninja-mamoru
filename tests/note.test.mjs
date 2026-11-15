@@ -77,4 +77,10 @@ assert.ok(art.indexOf('結論から言うと') < art.indexOf('class="toc"') && a
 assert.ok((art.match(/<h3 id="(a\d|shimau)">[^<]*→[^<]*<\/h3>/g) || []).length >= 6, '見出しに結論（→）を入れる');
 assert.ok(art.indexOf('<h3 id="a7">') > art.indexOf('<h3 id="a6">') && /次にやること：/.test(art), 'まとめと次の行動');
 for (const m of art.matchAll(/href="#([a-z0-9]+)"/g)) assert.ok(page.includes('id="' + m[1] + '"'), '目次の行き先が無い: ' + m[1]);
+// 上のメニューは4つ・並びはニーズの順（パスワード→困ったとき→詐欺メール→守り度チェック）。2段階認証はメニューから外した（ページは残す・ユーザー指示 2026-11-15）
+for (const f of ['../index.html', '../nidankai/index.html', '../sagi/index.html', '../komattara/index.html', '../password/index.html', '../password/tsukuru/index.html', '../password/note/index.html']) {
+  const h = readFileSync(new URL(f, import.meta.url), 'utf8');
+  const nav = h.match(/<nav class="site-nav">(.*?)<\/nav>/s)[1];
+  assert.deepEqual([...nav.matchAll(/>([^<]+)<\/a>/g)].map(m => m[1]), ['パスワード', '困ったとき', '詐欺メール', '守り度チェック'], 'メニューの並び: ' + f);
+}
 console.log('note.test: ok');
