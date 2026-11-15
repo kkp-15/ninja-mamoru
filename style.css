@@ -294,3 +294,8 @@ th{background:var(--k-kinari)}
 .ask span{display:block;font-size:13px;color:var(--sub);margin-bottom:.1rem}
 .ask::after{content:"";position:absolute;right:18px;bottom:-9px;width:14px;height:14px;background:var(--head);border-right:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg)}
 @media print{.talk{display:none}}
+
+/* 場面の挿し絵（読み物の見出しの下）。高さを先に取って、読みこみでガタつかせない */
+.fig{margin:.6rem 0 1rem}
+.fig img{display:block;width:100%;height:auto;max-width:560px;border:2px solid var(--ink)}
+@media print{.fig{display:none}}
