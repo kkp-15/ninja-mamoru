@@ -65,3 +65,13 @@
   .sheet:last-child{break-after:auto;page-break-after:auto}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+/* 記入例（画面だけ）。1件ぶんを大きく見せる */
+.exwrap{background:#f4f1ec;padding:10px;border-bottom:1px solid var(--line)}
+.ex{font-size:calc((min(100vw, 760px) - 56px) / 93);background:#fff;font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Noto Sans JP","Meiryo",sans-serif;line-height:1.2;color:#111;max-width:100%}
+.ex .card{grid-auto-rows:14em}
+.ex .r{align-items:flex-end;flex-wrap:nowrap;overflow:hidden}
+.r .v{font-size:4em;color:#1746a8;margin-left:.7em;white-space:nowrap;font-family:"Hiragino Maru Gothic ProN","Klee","YuKyokasho","Yu Mincho",sans-serif;line-height:1.15}
+.r.his .v{font-size:3.5em;margin-left:.6em}
+.r .v.old{text-decoration:line-through;text-decoration-thickness:.08em;color:#6c7fa8}
+@media(min-width:700px){.ex{font-size:calc(420px / 93)}}

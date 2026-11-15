@@ -51,9 +51,40 @@
     h += '</div><div class="foot"><span>' + (o.caution ? '持ち歩かない・端末やつくえに貼らない・家の決まった場所にしまう' : '') + '</span><span>' + page + ' / ' + o.sheets + '</span></div></div>';
     return h;
   }
+  // 記入例（画面で見るだけ。印刷には入らない）。文字は作りものの例
+  function sampleValues(o) {
+    return {
+      name: '○○銀行',
+      id: 'hanako-y',
+      pw: o.hint ? 'いつもの＋gin27' : 'Mikan-Sora-Kutsu-27',
+      mail: 'hanako@example.com',
+      question: '小学校の名前（答えは書かない）',
+      memo: 'スマホのアプリあり',
+      his: o.hint ? '2027. 3. 2　新：いつもの＋gin64' : '2027. 3. 2　新：Yuki-Hashi-Mado-64'
+    };
+  }
+  function sampleHtml(o) {
+    var rs = rows(o), v = sampleValues(o), h = '<div class="card">', hisDone = false;
+    for (var j = 0; j < rs.length; j++) {
+      var r = rs[j], k = r.k, val = '', t = r.t || '';
+      if (j === 0) val = v.name;
+      else if (k === 'ログインID') val = v.id;
+      else if (/pw/.test(r.c)) val = v.pw;
+      else if (k === '登録メール') val = v.mail;
+      else if (k === 'ひみつの質問など') val = v.question;
+      else if (k === 'メモ') val = v.memo;
+      else if (/box/.test(r.c)) t = t.replace('□SMS', '☑SMS');
+      else if (/his/.test(r.c) && !hisDone) { val = v.his; t = ''; hisDone = true; }
+      var old = /pw/.test(r.c) && historyRows(o) > 0;      // 変えたあとは、古いものに線を引く
+      h += '<div class="r ' + r.c + '"><span class="k">' + esc(k) + '</span>' +
+        (t ? '<span class="t">' + esc(t) + '</span>' : '') +
+        (val ? '<span class="v' + (old ? ' old' : '') + '">' + esc(val) + '</span>' : '') + '</div>';
+    }
+    return h + '</div>';
+  }
   function allHtml(o) { var h = ''; for (var p = 1; p <= o.sheets; p++) h += sheetHtml(o, p); return h; }
 
-  var api = { DEF: DEF, PER: PER, SHEETS: SHEETS, rows: rows, historyRows: historyRows, total: total, summary: summary, sheetHtml: sheetHtml, allHtml: allHtml };
+  var api = { DEF: DEF, PER: PER, SHEETS: SHEETS, rows: rows, historyRows: historyRows, total: total, summary: summary, sheetHtml: sheetHtml, allHtml: allHtml, sampleHtml: sampleHtml, sampleValues: sampleValues };
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
   root.MamoruNote = api;
 
@@ -71,6 +102,9 @@
     $('dockSum').textContent = summary(o);
     $('pv').innerHTML = sheetHtml(o, 1);
     $('sheets').innerHTML = allHtml(o);
+    $('ex').innerHTML = sampleHtml(o);
+    $('exOld').hidden = !o.history;
+    $('exQ').hidden = !o.question;
     var n = historyRows(o);
     $('hisNote').textContent = o.history ? '変更の履歴は1件につき' + n + '回ぶん書けます。' : '';
   }

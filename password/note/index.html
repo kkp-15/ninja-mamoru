@@ -36,7 +36,7 @@
 </script>
 <link rel="stylesheet" href="/kit/kit.css?v=afa429f">
 <link rel="stylesheet" href="/style.css?v=20261103pw2">
-<link rel="stylesheet" href="/password/note/note.css?v=20261115g">
+<link rel="stylesheet" href="/password/note/note.css?v=20261115h">
 <script src="/kit/kit.js?v=afa429f" defer></script>
 </head>
 <body>
@@ -60,6 +60,17 @@
   <li><b>家にしまう</b><span>通帳と同じ場所へ。持ち歩かず、ほかの人の目にふれない所に。</span></li>
 </ol>
 <p class="note">大きく書けるように、1枚に4件の用紙にしてあります。用紙に「パスワード」という題は入れていません。<span id="hisNote"></span></p>
+
+<details class="custom" id="rei">
+<summary>記入例を見る</summary>
+<div class="exwrap"><div class="ex per4" id="ex"></div></div>
+<ul class="read">
+  <li><b>青い字が、書きこむ所の例です。</b>例の文字は作りものです。まねして使わないでください。</li>
+  <li id="exOld"><b>パスワードを変えたら、古いものに線を引きます。</b>その下の「変えた日」と「新：」に、日付と新しいパスワードを書き足します。</li>
+  <li id="exQ"><b>ひみつの質問は、質問だけ書きます。</b>答えは自分で覚えておきます。</li>
+  <li><b>キャッシュカードの暗証番号は書きません。</b>このノートは、ネットのサービスに入るためのIDとパスワードの控えです。</li>
+</ul>
+</details>
 
 <details class="custom" id="custom">
 <summary>件数や欄を変える（そのままでも使えます）</summary>
@@ -187,6 +198,6 @@
 </footer>
 <div id="dock"><div class="in"><span class="prog" id="dockSum"></span><button type="button" id="printBtn">印刷する</button></div></div>
 <div id="sheets" aria-hidden="true"></div>
-<script src="/password/note/note.js?v=20261115f"></script>
+<script src="/password/note/note.js?v=20261115i"></script>
 </body>
 </html>

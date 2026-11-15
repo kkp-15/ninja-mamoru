@@ -24,6 +24,12 @@ assert.equal((html.match(/class="card"/g) || []).length, 18);
 assert.ok(html.includes('<span class="no">18</span>'));
 assert.ok(N.sheetHtml({ ...N.DEF, hint: true }, 1).includes('パスワードの手がかり'));
 assert.ok(!N.sheetHtml({ ...N.DEF, caution: false }, 1).includes('持ち歩かない'));
+// 記入例: 画面だけ。印刷の用紙には入らない。メールは example.com（実在しない）
+const ex = N.sampleHtml(N.DEF);
+assert.ok(ex.includes('class="v old"') && ex.includes('新：') && ex.includes('hanako@example.com'));
+assert.ok(!N.allHtml(N.DEF).includes('class="v'), '記入例が印刷に入っている');
+assert.ok(!N.sampleHtml({ ...N.DEF, history: false }).includes('class="v old"'), '履歴なしのときは線を引かない');
+assert.ok(N.sampleHtml({ ...N.DEF, hint: true }).includes('いつもの'), '手がかりの例');
 // 入力欄を作らない・外部リンクは運営の2つだけ（サイトの決まり）
 const page = readFileSync(new URL('../password/note/index.html', import.meta.url), 'utf8');
 assert.ok(!/<input|<textarea|<select|contenteditable|<form/i.test(page), '入力欄がある');
