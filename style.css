@@ -306,3 +306,5 @@ th{background:var(--k-kinari)}
 .chat .ask{margin-top:1rem}
 .chat .say{margin:.5rem 0 0}
 @media print{.chat{display:none}}
+
+.chat .say a{font-weight:700}

@@ -37,7 +37,7 @@
 </script>
 <!-- 共通部品 D4（kkp-kit を kit/ にコピーしたもの。中は手で直さず kkp-kit 側で直して sync.sh）。Web フォントは読まない -->
 <link rel="stylesheet" href="/kit/kit.css?v=afa429f">
-<link rel="stylesheet" href="/style.css?v=20261115talk">
+<link rel="stylesheet" href="/style.css?v=20261115chat2">
 <script src="/kit/kit.js?v=afa429f" defer></script>
 </head>
 <body class="hasDock">
@@ -60,10 +60,20 @@
 <p class="note">記録はこのブラウザの中（localStorage）だけに残ります。<button type="button" class="again" id="clearAll">この端末の記録を消す</button></p>
 
 <h2 id="naze">なぜ2段階認証？ → パスワードが漏れても、入られにくくなるから</h2>
-<div class="talk">
-<p class="ask"><span>読んでいる人</span>2段階認証って、付けると何が変わるの？ どれから付ければいい？</p>
-<div class="say"><img src="/img/girl-phone-left.webp" width="240" height="230" alt="" loading="lazy" decoding="async"><p>パスワードのほかに、本人のスマホでの確認が要るようになります。まずメール、次にお金のサービスから。</p></div>
-</div>
+<section class="chat" aria-label="会話でわかる">
+<h3>会話でわかる（1分）</h3>
+<p class="ask"><span>読んでいる人</span>2段階認証って、付けると何が変わるの？</p>
+<div class="say"><img src="/img/girl-phone-left.webp" width="240" height="230" alt="" loading="lazy" decoding="async"><p>パスワードのほかに、本人のスマホでの確認が要るようになります。パスワードが漏れても、入られにくくなります。</p></div>
+<p class="ask"><span>読んでいる人</span>サービスがたくさんあって…どれから付ければいい？</p>
+<div class="say"><img src="/img/girl-point-right.webp" width="240" height="279" alt="" loading="lazy" decoding="async"><p>メール → お金（銀行・カード・証券・決済） → そのほか、の順です。</p></div>
+<p class="ask"><span>読んでいる人</span>どうしてメールが最初なの？</p>
+<div class="say"><img src="/img/girl-think-left.webp" width="240" height="296" alt="" loading="lazy" decoding="async"><p>ほかのサービスの「パスワードを忘れた」の再設定が、メールに届くからです。</p></div>
+<p class="ask"><span>読んでいる人</span>スマホをなくしたら、入れなくなる？</p>
+<div class="say"><img src="/img/girl-relief.webp" width="240" height="288" alt="" loading="lazy" decoding="async"><p>予備の手段を登録しておけば大丈夫です。予備のコードは、紙に書いて保管します。</p></div>
+<p class="ask"><span>読んでいる人</span>「届いたコードを教えて」と言われたら？</p>
+<div class="say"><img src="/img/girl-wow-left.webp" width="240" height="256" alt="" loading="lazy" decoding="async"><p>教えません。金融機関がIDやパスワードをメールやSMSで聞くことはない、と警察庁が案内しています。</p></div>
+<p class="note">大事なことは、ここまでです。くわしい理由は、下にあります。</p>
+</section>
 
 <p>2段階認証を付けると、<b>パスワードが漏れても入られにくく</b>なります。パスワードのほかに「本人のスマホでの承認」や「届いたコード」が要るからです。パスワードは、偽サイトへの入力やサービスからの流出で、気づかないうちに漏れることがあります。金融庁も、多要素認証（追加の認証）を有効にするよう呼びかけています。</p>
 <h3>順番はメール → お金 → そのほか</h3>

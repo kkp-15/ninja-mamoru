@@ -38,7 +38,7 @@
 </script>
 <!-- 共通部品 D4（kkp-kit を kit/ にコピーしたもの。中は手で直さず kkp-kit 側で直して sync.sh）。Web フォントは読まない -->
 <link rel="stylesheet" href="/kit/kit.css?v=afa429f">
-<link rel="stylesheet" href="/style.css?v=20261115talk">
+<link rel="stylesheet" href="/style.css?v=20261115chat2">
 <script src="/kit/kit.js?v=afa429f" defer></script>
 </head>
 <body class="hasDock">
@@ -68,8 +68,22 @@
 
 <p class="note">チェックの回答は、このブラウザの中（localStorage）にだけ保存されます。サーバーには送りません。<button type="button" class="again" id="clearAll">この端末の記録を消す</button></p>
 
+<section class="chat" aria-label="会話でわかる">
+<h3>会話でわかる（1分）</h3>
+<p class="ask"><span>読んでいる人</span>ニュースで「流出」ってよく聞くけど、自分は何をすればいいの？</p>
+<div class="say"><img src="/img/girl-point-right.webp" width="240" height="279" alt="" loading="lazy" decoding="async"><p>やることは3つだけです。パスワードを別々にする・2段階認証を付ける・メールやSMSのリンクから開かない。</p></div>
+<p class="ask"><span>読んでいる人</span>パスワードって、3か月ごとに変えないとだめ？</p>
+<div class="say"><img src="/img/girl-relief.webp" width="240" height="288" alt="" loading="lazy" decoding="async"><p>いりません。変えるのは、漏れたときと、使い回していたときです。</p></div>
+<p class="ask"><span>読んでいる人</span>外のWi-Fiは、使わないほうがいい？</p>
+<div class="say"><img src="/img/girl-wink.webp" width="240" height="247" alt="" loading="lazy" decoding="async"><p>3つを守れば使えます。HTTPSの通信・正しいURL・接続先の確認です。</p></div>
+<p class="ask"><span>読んでいる人</span>あやしいメールは、日本語が変だから分かるよね？</p>
+<div class="say"><img src="/img/girl-think-left.webp" width="240" height="296" alt="" loading="lazy" decoding="async"><p>それは、もう通じません。見た目で見分けるより、リンクから開かないのが確実です。</p></div>
+<p class="ask"><span>読んでいる人</span>何から始めればいい？</p>
+<div class="say"><img src="/img/girl-guts.webp" width="240" height="278" alt="" loading="lazy" decoding="async"><p>上のチェックで「いいえ」だった所から、1つずつで大丈夫です。</p></div>
+<p class="note">大事なことは、ここまでです。数字や出どころ、設定の手順は、下にあります。</p>
+</section>
+
 <h2 id="kihon">本当に効くのは、この3つ</h2>
-<div class="say"><img src="/img/girl-point-right.webp" width="240" height="279" alt="" loading="lazy" decoding="async"><p>やることは3つだけです。パスワードを別々にする・2段階認証を付ける・メールのリンクから開かない。</p></div>
 <p>警察庁が受けたフィッシングの報告は、2025年の1年で<b>2,454,297件</b>。ネットバンキングの不正送金は<b>4,747件・約104.0億円</b>でした。IPAの「情報セキュリティ10大脅威 2026（個人編）」にも、サービスからの個人情報の窃取、不正ログイン、ネットバンキングやクレジットカードの不正利用、フィッシングが並びます。</p>
 <p>個人がやることは多くありません。公的機関がくり返し挙げるのは次の3つです。</p>
 <ol class="steps">
@@ -78,24 +92,14 @@
   <li><b>メールやSMSのリンクからログインしない</b>。公式アプリかブックマークから開く。→ <a href="/sagi/">詐欺メール・SMSの見分けトレーニング</a></li>
 </ol>
 
-<div class="say"><img src="/img/girl-guts.webp" width="240" height="278" alt="" loading="lazy" decoding="async"><p>ぜんぶ一度にやらなくて大丈夫。上のチェックで「いいえ」だった所から、1つずつ進めましょう。</p></div>
-
 <h2 id="kinishinai">気にしすぎなくていいこと</h2>
 <p>公的機関が「しなくてよい」「条件つきで大丈夫」としているものです。</p>
-<div class="talk">
-<p class="ask"><span>読んでいる人</span>パスワードって、3か月ごとに変えないとだめ？ 外のWi-Fiも、使わないほうがいい？</p>
-<div class="say"><img src="/img/girl-relief.webp" width="240" height="288" alt="" loading="lazy" decoding="async"><p>パスワードの定期的な変更は、いりません。公衆Wi-Fiも、3つを守れば使えます。</p></div>
-</div>
 <h3>パスワードの定期的な変更</h3>
 <p>総務省の一般向けページは「パスワードを複数のサービスで使い回さない（定期的な変更は不要）」としています。変えるのは、漏れたとき・使い回していたときで十分です。</p>
 <h3>公衆Wi-Fiを一切使わないこと</h3>
 <p><b>公衆Wi-Fiは、3つを守れば使えます</b>。総務省の「Wi-Fi利用者向け 簡易マニュアル」（令和7年2月版）は、HTTPSの通信ならWi-Fiが暗号化されていなくても中身を守れるとしたうえで、<b>HTTPS通信は必須</b>、<b>正しいURLかを確かめる</b>、<b>接続する公衆Wi-Fiをよく確かめる</b>（偽の公衆Wi-Fiが報告されている。少しでも不審なら使わない）を挙げています。</p>
 
 <h2 id="ai">AIで詐欺はどう変わった？ → 見た目では見分けられなくなった</h2>
-<div class="talk">
-<p class="ask"><span>読んでいる人</span>あやしいメールは、日本語が変だから分かるんじゃないの？</p>
-<div class="say"><img src="/img/girl-think-left.webp" width="240" height="296" alt="" loading="lazy" decoding="async"><p>「日本語が変だから偽物」は、もう通じません。リンクから開かないのが、いちばん確実です。</p></div>
-</div>
 <p>フィッシング対策協議会の2026年8月の月次報告には、AIに文面を作らせたとみられる<b>指示文が本文に残ったままの詐欺メール</b>が載っています。総務省など7府省庁は2026年8月、ディープフェイクで著名人の顔や声を無断で使った詐欺広告への対策をSNS事業者に要請しました。</p>
 <p>つまり「日本語が不自然だから怪しい」「本人の声だから本物」は、もう当てになりません。見た目で見分けようとするより、<b>リンクから開かない・公式の窓口に自分で確かめる</b>という決まりのほうが、AIがどれだけ上手になっても効きます。</p>
 

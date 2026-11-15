@@ -87,4 +87,12 @@ for (const f of ['../index.html', '../nidankai/index.html', '../sagi/index.html'
   const nav = h.match(/<nav class="site-nav">(.*?)<\/nav>/s)[1];
   assert.deepEqual([...nav.matchAll(/>([^<]+)<\/a>/g)].map(m => m[1]), ['パスワード', '困ったとき', '詐欺メール', '守り度チェック'], 'メニューの並び: ' + f);
 }
+// 会話でわかる: 7ページすべてにある（ユーザー指示 2026-11-15「会話形式、ほかのページにも」）。問いと答えの数がそろっている
+for (const f of ['../index.html', '../nidankai/index.html', '../sagi/index.html', '../komattara/index.html', '../password/index.html', '../password/tsukuru/index.html', '../password/note/index.html']) {
+  const h = readFileSync(new URL(f, import.meta.url), 'utf8');
+  const c = (h.split('<section class="chat"')[1] || '').split('</section>')[0];
+  const q = (c.match(/class="ask"/g) || []).length, an = (c.match(/class="say"/g) || []).length;
+  assert.ok(q >= 4 && q === an, '会話が無い・数が合わない: ' + f + ' ' + q + '/' + an);
+  for (const m of c.matchAll(/src="(\/img\/[^"]+)"/g)) assert.ok(readFileSync(new URL('..' + m[1], import.meta.url)).length > 1000, '絵が無い: ' + m[1]);
+}
 console.log('note.test: ok');
