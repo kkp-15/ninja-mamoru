@@ -22,7 +22,8 @@ for (let i = 0; i < 300; i++) {
   assert.equal((r.pw.match(/[0-9]/g) || []).length, 1);
 }
 // 覚える用
-const w = P.wordsPw({ n: 5, cap: true, num: true }, W);
+// 単語リストには「yo-yo」のようにハイフン入りの語が4つあるので、数えるときは除いたリストで作る（たまに6に割れて検査が落ちていた）
+const w = P.wordsPw({ n: 5, cap: true, num: true }, W.filter(x => !x.includes('-')));
 assert.equal(w.pw.split('-').length, 5);
 assert.equal((w.pw.match(/[0-9]/g) || []).length, 1);
 assert.ok(Math.abs(P.wordsPw({ n: 6, cap: false, num: false }, W).bits - 77.5) < 0.1);

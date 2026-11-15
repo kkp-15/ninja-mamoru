@@ -50,6 +50,9 @@ const cmp = readFileSync(new URL('../password/compare.js', import.meta.url), 'ut
 for (const yen of ['17980', '27980']) assert.ok(cmp.includes(yen) && page.includes(Number(yen).toLocaleString('ja-JP') + '円'), '価格が compare.js と合わない: ' + yen);
 assert.ok(/id="noteCta" href="\/password\/"/.test(page), '次の一歩はサイト内の総額くらべへ');
 assert.ok(!/リベ|学長|両/.test(page), '会員限定の情報源の名前が出ている');
+// メインを前に: 見出し（h2）を本文に並べない。読み物は「くわしく読む」の中
+assert.ok(!/<h2/.test(page.split('<main>')[1].split('</main>')[0]), '本文に大きな見出しが出ている');
+assert.ok(/<details class="custom more" id="more">/.test(page) && page.indexOf('id="more"') < page.indexOf('id="shimau"'), '読み物は折りたたみの中');
 assert.ok(/id="kangae"/.test(page) && /id="motto"/.test(page) && /id="rei"/.test(page) && /id="tsukuru"/.test(page), '考え方・コツ・記入例・案は読みたい人だけ開ける形');
 // 画面の部品が js と合っている（消した部品を js が探していない）
 const js = readFileSync(new URL('../password/note/note.js', import.meta.url), 'utf8');

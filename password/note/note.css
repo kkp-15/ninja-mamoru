@@ -92,3 +92,13 @@
   .sidead:not([hidden]){width:300px}
   .sidead ins.adsbygoogle{width:300px;height:600px}
 }
+
+/* メインを前に: 見本・手順のあとは、小さな見出しと折りたたみだけ */
+.sub{font-size:14px;color:var(--sub);margin:1.2rem 0 .3rem}
+.sub + .custom{margin-top:0}
+.nextline{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.8rem 0;margin:1.2rem 0}
+.nextline p{flex:1 1 300px;margin:0;font-size:14.5px;color:var(--sub);line-height:1.6}
+.nextline p b{display:block;font-size:16px;color:var(--ink)}
+.nextline .btn{margin:0;flex:0 0 auto}
+.more .morein{padding:0 .8rem .8rem}
+.more h3{margin-top:1.2rem}
