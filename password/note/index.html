@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>パスワード管理ノートを印刷して作る｜無料のA4用紙（変更の履歴も書ける）</title>
+<meta name="description" content="パスワード管理ノートの用紙を、家のプリンターですぐ印刷できます。1枚4・6・8件から選べて、2段階認証やパスワードを変えた日の欄も足せます。画面には何も打ち込みません。お店で売り切れのときにも。しまう場所と書き方のコツ付き。">
+<link rel="canonical" href="https://mamoru.kkpwebninja.com/password/note/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#e2600f">
+<!-- WEBNINJA_UNIFIED_FAVICON -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="パスワード管理ノートを印刷して作る｜無料のA4用紙">
+<meta property="og:description" content="家のプリンターですぐ印刷できるパスワード管理ノートの用紙。変更の履歴・2段階認証の欄も選べます。画面には何も打ち込みません。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamoru.kkpwebninja.com/password/note/">
+<meta property="og:site_name" content="サイバー攻撃・個人情報流出から自分を守る">
+<meta property="og:image" content="https://mamoru.kkpwebninja.com/ogp.jpg?d=20261023b">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mamoru.kkpwebninja.com/ogp.jpg?d=20261023b">
+<script src="/ga.js"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebApplication","@id":"https://mamoru.kkpwebninja.com/password/note/#app","name":"印刷して使うパスワード管理ノート","url":"https://mamoru.kkpwebninja.com/password/note/","applicationCategory":"SecurityApplication","operatingSystem":"Web","inLanguage":"ja","description":"パスワード管理ノートの白紙の用紙をA4で印刷できる無料ツール。1枚の件数と欄を選べる。画面には何も入力させず、選んだ内容も保存・送信しない。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"datePublished":"2026-11-15","dateModified":"2026-11-15","author":{"@type":"Organization","name":"web忍者の砦"},"publisher":{"@type":"Organization","name":"web忍者の砦","url":"https://kkpwebninja.com/"}},
+    {"@type":"FAQPage","@id":"https://mamoru.kkpwebninja.com/password/note/#faq","mainEntity":[
+      {"@type":"Question","name":"パスワードを紙に書いても大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"家で保管するなら、公的機関も挙げている方法です。IPA（情報処理推進機構）は、覚えきれない場合は自宅で保管するノートなどへの記録や、パスワード管理ソフトの利用を勧めています。総務省は、メモに書いた場合は鍵のかかる机や金庫など安全な方法で保管するよう求めています。端末や机に貼るのは避けてください。"}},
+      {"@type":"Question","name":"このページにパスワードを入力するのですか？","acceptedAnswer":{"@type":"Answer","text":"入力しません。このページが作るのは白紙の用紙だけで、文字を打ち込む欄はありません。印刷したあと、手で書きます。選んだ件数や欄も、保存も送信もしません。"}},
+      {"@type":"Question","name":"パスワードを変えたときは、どう書きますか？","acceptedAnswer":{"@type":"Answer","text":"「変更の履歴」の欄に、変えた日と新しいパスワードを書き足します。古いものは線で消すと、どれが今のものか分かります。欄がいっぱいになったら、新しい枠に書き写してください。"}}
+    ]}
+  ]
+}
+</script>
+<link rel="stylesheet" href="/kit/kit.css?v=afa429f">
+<link rel="stylesheet" href="/style.css?v=20261103pw2">
+<link rel="stylesheet" href="/password/note/note.css?v=20261115a">
+<script src="/kit/kit.js?v=afa429f" defer></script>
+</head>
+<body>
+<div class="site"><div class="site-in">
+  <a class="site-name" href="/">サイバー攻撃・個人情報流出から自分を守る</a>
+  <nav class="site-nav"><a href="/">守り度チェック</a><a href="/nidankai/">2段階認証</a><a href="/sagi/">詐欺メール</a><a href="/password/" aria-current="page">パスワード</a><a href="/komattara/">困ったとき</a></nav>
+</div></div>
+<div class="wrap">
+<header>
+  <h1>パスワード管理ノートを印刷して作る</h1>
+  <p class="lead">欄を選んで印刷するだけ。<b>画面には何も打ち込みません。</b></p>
+</header>
+
+<main>
+<table class="tool note" aria-label="用紙の作り">
+  <tr><th>件数（1枚）</th><td><div class="seg" id="perPick">
+    <button type="button" data-v="4">4件</button><button type="button" data-v="6">6件</button><button type="button" data-v="8">8件</button>
+  </div></td></tr>
+  <tr><th>足す欄</th><td><div class="chips opt">
+    <button type="button" id="o_history">変更の履歴</button><button type="button" id="o_twofa">2段階認証</button><button type="button" id="o_memo">メモ</button><button type="button" id="o_question">ひみつの質問</button><button type="button" id="o_caution">注意書き</button>
+  </div></td></tr>
+  <tr><th>書き方</th><td><div class="seg" id="hintPick">
+    <button type="button" data-v="0">そのまま書く</button><button type="button" data-v="1">手がかりだけ</button>
+  </div></td></tr>
+  <tr><th>枚数</th><td><div class="seg" id="sheetPick">
+    <button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="5">5</button><button type="button" data-v="10">10</button>
+  </div></td></tr>
+</table>
+
+<p class="sum" aria-live="polite">できあがり: <b id="sum"></b></p>
+<div class="pvwrap" aria-label="用紙の見本（1枚目）"><div class="pv" id="pv"></div></div>
+<p class="note">上は1枚目の見本です。4件は大きく書けて、8件はたくさん入ります。用紙に「パスワード」という題は入れていません。<span id="hisNote"></span>「注意書き」は、紙のいちばん下に入る保管の決まりの1行です。</p>
+<p class="printrow"><button type="button" class="btn" id="printBtn2">印刷する</button></p>
+<p class="note">A4・たて向きで印刷してください。小さく使いたいときは、印刷の設定で「倍率70%」にするとA5ほどになります。選んだ内容は、保存も送信もしません。</p>
+
+<div class="point"><b>お店で売り切れのときにも</b>100円ショップの専用ノートが品薄だと報じられています（2026年11月）。買えるならそれが手軽です。買えないあいだは、この用紙を印刷して、ファイルやノートにはさんで使えます。</div>
+
+<h2 id="tsukaikata">使い方</h2>
+<ol class="steps">
+  <li><b>印刷する。</b>よく使うサービスの数より、少し多めの枚数にします。</li>
+  <li><b>大事なものから書く。</b>メール・銀行や証券・買い物・SNSの順がおすすめです。メールは、ほかのサービスのパスワードを作り直す入口になるからです。</li>
+  <li><b>家の決まった場所にしまう。</b>通帳や保険の書類と同じ場所が分かりやすいです。</li>
+  <li><b>変えたら書き足す。</b>「変えた日」と「新：」の欄に書き、古いものは線で消します。</li>
+</ol>
+
+<h2 id="kotsu">書くときのコツ</h2>
+<ul>
+  <li><b>サービスごとに別のパスワードにする。</b>同じものを使い回していると、1か所から漏れたときに、ほかのサービスにも入られます。新しい案は<a href="/password/tsukuru/">パスワードを作る</a>で出せます。</li>
+  <li><b>全部は書かない方法もある。</b>IPAは、自分だけが覚えている共通の部分（コアパスワード）は暗記し、サービスごとに足す短い文字だけを紙に記録する方法を紹介しています。紙をなくしても、それだけでは使えません。この方法で書くなら、上の「手がかりだけ」を選んでください。</li>
+  <li><b>2段階認証の欄も埋める。</b>どのサービスに何を付けたかが分かると、スマホを替えるときに困りません。付け方は<a href="/nidankai/">サービスごとの一覧</a>へ。</li>
+  <li><b>消せるペンで書かない。</b>こすると消えるインクは、熱で文字が消えることがあります。</li>
+</ul>
+
+<h2 id="shimau">しまう場所の決まり</h2>
+<div class="scroll"><table class="cmp">
+  <tr><th>すること</th><th>理由</th></tr>
+  <tr><th>家で保管する</th><td>IPAは、覚えきれない場合の方法として「自宅で保管するノート等」への記録を挙げています。</td></tr>
+  <tr><th>鍵のかかる所へ</th><td>総務省は、メモに書いた場合は「鍵のかかる机や金庫など安全な方法で保管すること」としています。</td></tr>
+  <tr><th>端末や机に貼らない</th><td>IPAも総務省も、パスワードのメモを貼らないよう求めています。端末をなくすと、そのまま入られます。</td></tr>
+  <tr><th>持ち歩かない</th><td>かばんごとなくしたり、外で開いて見られたりします。外で要るものは、スマホの管理アプリに任せるほうが向いています。</td></tr>
+  <tr><th>家族に場所を伝える</th><td>もしもの時に、家族が手続きできます。場所だけ伝えて、中身は見せなくてかまいません。</td></tr>
+</table></div>
+
+<h2 id="mamoreru">紙で守れること・守れないこと</h2>
+<div class="scroll"><table class="cmp">
+  <tr><th></th><th>紙のノート</th><th>管理アプリ</th></tr>
+  <tr><th>ネット越しに盗まれる</th><td>心配なし（つながっていない）</td><td>アプリ自体の守りが要る</td></tr>
+  <tr><th>なくす・火事・水ぬれ</th><td>弱い（控えが無いと戻らない）</td><td>強い（別の端末から戻せる）</td></tr>
+  <tr><th>偽サイトにだまされる</th><td>防げない（自分の目で見分ける）</td><td>気づきやすい（本物のサイトでしか自動入力されない）</td></tr>
+  <tr><th>長くて複雑なもの</th><td>書くのも打つのも手間</td><td>自動で作って自動で入る</td></tr>
+  <tr><th>お金</th><td>紙とインクだけ</td><td>無料のものと有料のものがある</td></tr>
+</table></div>
+<p>紙に書いても、サービスの側から漏れた場合は防げません。そのために、サービスごとに別のパスワードにして、<a href="/nidankai/">2段階認証</a>を付けておきます。件数が増えて書くのが大変になったら、<a href="/password/">管理アプリの選び方と総額くらべ</a>を見てください。</p>
+
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<details><summary>パスワードを紙に書いても大丈夫ですか？</summary><p>家で保管するなら、公的機関も挙げている方法です。IPA（情報処理推進機構）は、覚えきれない場合は自宅で保管するノートなどへの記録や、パスワード管理ソフトの利用を勧めています。総務省は、メモに書いた場合は鍵のかかる机や金庫など安全な方法で保管するよう求めています。端末や机に貼るのは避けてください。</p></details>
+<details><summary>このページにパスワードを入力するのですか？</summary><p>入力しません。このページが作るのは白紙の用紙だけで、文字を打ち込む欄はありません。印刷したあと、手で書きます。選んだ件数や欄も、保存も送信もしません。</p></details>
+<details><summary>パスワードを変えたときは、どう書きますか？</summary><p>「変更の履歴」の欄に、変えた日と新しいパスワードを書き足します。古いものは線で消すと、どれが今のものか分かります。欄がいっぱいになったら、新しい枠に書き写してください。</p></details>
+<details><summary>コンビニのプリンターで印刷してもいいですか？</summary><p>白紙の用紙なので、中身を見られる心配はありません。ただ、家にプリンターがあるなら、そちらが手軽です。書きこんだあとの紙は、コピー機に置き忘れないよう、外でコピーしないでください。</p></details>
+</section>
+
+<h2 id="shutten">出典（確認日 2026年11月15日）</h2>
+<ul class="sources">
+  <li>IPA「情報セキュリティ10大脅威 2025 個人編」（2025年6月）32ページ「適切な保管、運用を行う」 https://www.ipa.go.jp/security/10threats/eid2eo0000005231-att/kaisetsu_2025_kojin.pdf</li>
+  <li>IPA 安心相談窓口だより「不正ログイン被害の原因となるパスワードの使い回しはNG」（コアパスワードと、紙に記録する方法） https://www.ipa.go.jp/security/anshin/attention/2016/mgdayori20160803.html</li>
+  <li>総務省「国民のためのサイバーセキュリティサイト」推測できる簡単なパスワードを利用しないようにしよう（パスワードの保管方法） https://www.soumu.go.jp/main_sosiki/cybersecurity/kokumin/security/end_user/general/01/</li>
+</ul>
+
+<div class="author"><p>運営: web忍者の砦。公的機関のページで確かめた内容に、確認日を付けています。このページは、文字を打ち込む欄を持たず、選んだ内容を送信・保存しません。<a href="https://privacypolicy.kkpwebninja.com/" target="_blank" rel="noopener">プライバシーポリシー</a></p></div>
+</main>
+</div>
+<nav class="related" aria-label="関連ページ"><b>あわせて見る</b>
+  <a href="/password/tsukuru/">パスワードを作る（送信しない・保存しない）</a>
+  <a href="/password/">パスワード管理アプリはどれを選ぶ（1Passwordの総額くらべ）</a>
+  <a href="/nidankai/">2段階認証をサービスごとに付ける</a>
+</nav>
+<footer class="uf">
+  <div class="uf-name">web忍者の砦</div>
+  <div><a href="https://kkpwebninja.com/" target="_blank" rel="noopener">本丸トップ</a>·<a href="https://privacypolicy.kkpwebninja.com/" target="_blank" rel="noopener">プライバシーポリシー</a>·<a href="https://kkpwebninja.com/otoiawase" target="_blank" rel="noopener">お問い合わせ</a></div>
+  <div class="uf-c">© 2025-2026 web忍者の砦</div>
+</footer>
+<div id="dock"><div class="in"><span class="prog" id="dockSum"></span><button type="button" id="printBtn">印刷する</button></div></div>
+<div id="sheets" aria-hidden="true"></div>
+<script src="/password/note/note.js?v=20261115a"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/* 印刷して使うパスワード管理ノート。
+   用紙の寸法は em で書く。印刷のときは 1em = 1mm、画面の見本は横幅に合わせて縮める。 */
+.sum{font-size:15px;margin:.7rem 0 .3rem}
+.sum b{font-size:17px}
+.pvwrap{border:1px solid var(--line);background:#f4f1ec;padding:8px;margin:.2rem 0 .4rem}
+.pv{font-size:calc((min(100vw, 760px) - 50px) / 210);background:#fff;border:1px solid #bbb;overflow:hidden}
+#sheets{display:none}
+.printrow{margin:.2rem 0 0}
+.tool.note th{width:5.6em;padding:6px 8px;font-size:14.5px}
+.tool.note .chips{gap:6px}
+.chips.opt{margin:2px 0}
+
+/* 用紙（A4 縦 210×297）。外の余白 12、枠の間 4 */
+.sheet{width:210em;height:296em;padding:12em 12em 9em;display:flex;flex-direction:column;color:#111;background:#fff;font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Noto Sans JP","Meiryo",sans-serif;line-height:1.2}
+.cards{flex:1 1 auto;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:4em;min-height:0}
+.card{border:.4em solid #222;display:grid;grid-auto-rows:1fr;min-height:0}
+.r{display:flex;align-items:flex-end;border-top:.18em solid #9a9a9a;padding:0 1.2em .7em;min-height:0;position:relative}
+.r:first-child{border-top:0}
+.r.name{border-bottom:.3em solid #222}
+.r.name + .r{border-top:0}
+.r .k{font-size:2.5em;color:#333;white-space:nowrap}
+.r.name .k{font-weight:700;color:#111;font-size:2.7em}
+.r .t{font-size:2.5em;color:#333;white-space:nowrap;margin-left:.6em}
+.r .no{position:absolute;right:.5em;top:.3em;font-size:2.3em;color:#777}
+.r.pw{border-top-color:#222}
+.r.his .k,.r.his .t{color:#555;font-size:2.3em}
+.r.his{border-top-style:dashed}
+.foot{flex:0 0 auto;display:flex;justify-content:space-between;align-items:flex-end;height:7em;font-size:1em}
+.foot span{font-size:2.4em;color:#555}
+.per8 .r{padding-bottom:.5em}
+.per8 .r .k,.per8 .r .t{font-size:2.3em}
+.per8 .r.name .k{font-size:2.5em}
+
+@page{size:A4;margin:0}
+@media print{
+  html,body{margin:0;padding:0;background:#fff}
+  body > *:not(#sheets){display:none !important}
+  #sheets{display:block;font-size:1mm}
+  .sheet{break-after:page;page-break-after:always;overflow:hidden}
+  .sheet:last-child{break-after:auto;page-break-after:auto}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
