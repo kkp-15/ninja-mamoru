@@ -5,6 +5,9 @@
 .pvwrap{border:1px solid var(--line);background:#f4f1ec;padding:8px;margin:.2rem 0 .4rem}
 .pv{font-size:calc((min(100vw, 760px) - 50px) / 210);background:#fff;border:1px solid #bbb;overflow:hidden}
 #sheets{display:none}
+/* せまい画面でも、下のバーの「印刷する」をたてに折らない */
+#dock button{white-space:nowrap;flex:0 0 auto;padding:0 1.4rem}
+#dock .prog{white-space:normal;line-height:1.35;flex:1 1 auto}
 .nextstep{margin:1.4rem 0 1rem}
 .nextstep .btn{font-size:16.5px;min-height:48px;padding:.7rem 1.3rem}
 .printrow{margin:.2rem 0 0}
