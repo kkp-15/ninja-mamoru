@@ -7,7 +7,7 @@
 - 選んだ内容はサーバーにもどこにも**送らない**。保存は localStorage（キーは `mamoru:` で始まる）だけ。保存するのはサービスのidとチェック状態だけ。各ツールに「この端末の記録を消す」ボタン。**URLのクエリに入れない**
 - GA4 は回数だけ（mamoru_check_done / mamoru_quiz_done / mamoru_2fa_all_done / mamoru_2fa_link_click / mamoru_komattara_pick / mamoru_next_click / mamoru_apply_click / mamoru_pwgen_copy / mamoru_pwcheck_done / mamoru_note_print）。送るのは page と from（場所）だけ。回答・サービス名は送らない（ga.js の mamoruEvent を使う）
 - パスワードを作る（/password/tsukuru/・2026-11-03 ユーザー「作って」）: 作るのは画面の中だけ（crypto.getRandomValues）。作った文字も確かめの答えも保存・送信しない。いまのパスワードは打ち込ませず、はい/いいえで確かめる。単語は EFF Large Wordlist（7,776語・CC BY）。tests/pwgen.test.mjs が入力欄が無いことも検査
-- 印刷して使うパスワード管理ノート（/password/note/・2026-11-15 ユーザー「それでお願い」）: 白紙の用紙を作って印刷するだけ。文字を打ち込む欄は作らない。選んだ件数・欄は保存も送信もしない（localStorage も使わない）。用紙に「パスワード」という題を入れない。用紙の寸法は note.css の em（印刷時 1em=1mm）。tests/note.test.mjs が入力欄・保存・送信が無いことと、行の高さ7mm以上を検査。商品へのアフィリエイトは置かない（砦のブログ側に置く方針）
+- 印刷して使うパスワード管理ノート（/password/note/・2026-11-15 ユーザー「それでお願い」）: 白紙の用紙を作って印刷するだけ。文字を打ち込む欄は作らない。選んだ件数・欄は保存も送信もしない（localStorage も使わない）。用紙に「パスワード」という題を入れない。**はじめの形は、選ばずに印刷できる4件の用紙（はじめての人・年配の人向け。ユーザー指示 11/15）。件数や欄を選ぶ所は折りたたみの中**。用紙の寸法は note.css の em（印刷時 1em=1mm）。tests/note.test.mjs が入力欄・保存・送信が無いことと、行の高さ7mm以上を検査。商品へのアフィリエイトは置かない（砦のブログ側に置く方針）
 - **広告（AdSense）は入れない**。入れるなら必ずユーザー承認。外部スクリプトは GA4 だけ。CSP は _headers（インラインの script・style 属性は使えない）
 - 外部リンクは各社・公的機関の**公式ドメインだけ**。公式サイト内で実在を確かめたURL、確認日を記録。短縮URLは使わない
 - 詐欺の実例は手口の要点を自分の言葉で書き直す（フィッシング対策協議会は画像・文面の転載に相談を求めている）。偽URL・実在の個人の電話番号やメールアドレスは載せない（tests/quiz.test.mjs で検査）

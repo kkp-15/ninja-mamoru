@@ -4,14 +4,15 @@
 (function (root) {
   var PER = [4, 6, 8];                 // 1枚あたりの件数
   var SHEETS = [1, 2, 3, 5, 10];       // 枚数
-  var DEF = { per: 6, sheets: 2, twofa: true, question: false, memo: true, history: true, hint: false, caution: true };
+  // はじめの形は、大きく書ける4件。欄は少なめ（はじめての人・年配の人が迷わないように）
+  var DEF = { per: 4, sheets: 3, twofa: false, question: false, memo: true, history: true, hint: false, caution: true };
 
   // 変更の履歴の行数。1件の枠を高くできるほど多く取る（1行は約7mm以上を保つ）
   function historyRows(o) {
     if (!o.history) return 0;
     var base = 4 + (o.twofa ? 1 : 0) + (o.question ? 1 : 0) + (o.memo ? 1 : 0);
     var max = { 4: 17, 6: 11, 8: 8 }[o.per] - base;       // 枠の高さ ÷ 7.3mm から、見出し以外に入る行数
-    return Math.max(1, Math.min(max, { 4: 5, 6: 3, 8: 2 }[o.per]));
+    return Math.max(1, Math.min(max, { 4: 3, 6: 3, 8: 2 }[o.per]));
   }
 
   // 1件ぶんの行（上から順）。k=ラベル、c=行の種類

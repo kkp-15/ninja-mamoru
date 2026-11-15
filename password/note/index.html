@@ -36,7 +36,7 @@
 </script>
 <link rel="stylesheet" href="/kit/kit.css?v=afa429f">
 <link rel="stylesheet" href="/style.css?v=20261103pw2">
-<link rel="stylesheet" href="/password/note/note.css?v=20261115a">
+<link rel="stylesheet" href="/password/note/note.css?v=20261115b">
 <script src="/kit/kit.js?v=afa429f" defer></script>
 </head>
 <body>
@@ -47,10 +47,22 @@
 <div class="wrap">
 <header>
   <h1>パスワード管理ノートを印刷して作る</h1>
-  <p class="lead">欄を選んで印刷するだけ。<b>画面には何も打ち込みません。</b></p>
+  <p class="lead">「印刷する」を押すだけで、書きこみ用の紙が出ます。<b>画面には何も打ち込みません。</b></p>
 </header>
 
 <main>
+<p class="sum" aria-live="polite">できあがり: <b id="sum"></b></p>
+<div class="pvwrap" aria-label="用紙の見本（1枚目）"><div class="pv" id="pv"></div></div>
+<p class="printrow"><button type="button" class="btn big" id="printBtn2">印刷する</button></p>
+<ol class="easy">
+  <li><b>印刷する</b><span>A4の紙に、たて向きで。</span></li>
+  <li><b>手で書く</b><span>メール・銀行・買い物の順に。</span></li>
+  <li><b>家にしまう</b><span>通帳と同じ場所へ。持ち歩きません。</span></li>
+</ol>
+<p class="note">大きく書けるように、1枚に4件の用紙にしてあります。用紙に「パスワード」という題は入れていません。<span id="hisNote"></span></p>
+
+<details class="custom" id="custom">
+<summary>件数や欄を変える（そのままでも使えます）</summary>
 <table class="tool note" aria-label="用紙の作り">
   <tr><th>件数（1枚）</th><td><div class="seg" id="perPick">
     <button type="button" data-v="4">4件</button><button type="button" data-v="6">6件</button><button type="button" data-v="8">8件</button>
@@ -65,12 +77,9 @@
     <button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="5">5</button><button type="button" data-v="10">10</button>
   </div></td></tr>
 </table>
-
-<p class="sum" aria-live="polite">できあがり: <b id="sum"></b></p>
-<div class="pvwrap" aria-label="用紙の見本（1枚目）"><div class="pv" id="pv"></div></div>
-<p class="note">上は1枚目の見本です。4件は大きく書けて、8件はたくさん入ります。用紙に「パスワード」という題は入れていません。<span id="hisNote"></span>「注意書き」は、紙のいちばん下に入る保管の決まりの1行です。</p>
-<p class="printrow"><button type="button" class="btn" id="printBtn2">印刷する</button></p>
-<p class="note">A4・たて向きで印刷してください。小さく使いたいときは、印刷の設定で「倍率70%」にするとA5ほどになります。選んだ内容は、保存も送信もしません。</p>
+<p class="note">4件は大きく書けて、8件はたくさん入ります。「2段階認証」は、付けている方法に印を付ける欄です。「注意書き」は、紙のいちばん下に入る保管の決まりの1行です。小さく使いたいときは、印刷の設定で「倍率70%」にするとA5ほどになります。</p>
+</details>
+<p class="note">選んだ内容は、保存も送信もしません。</p>
 
 <div class="point"><b>お店で売り切れのときにも</b>100円ショップの専用ノートが品薄だと報じられています（2026年11月）。買えるならそれが手軽です。買えないあいだは、この用紙を印刷して、ファイルやノートにはさんで使えます。</div>
 
@@ -85,8 +94,8 @@
 <h2 id="kotsu">書くときのコツ</h2>
 <ul>
   <li><b>サービスごとに別のパスワードにする。</b>同じものを使い回していると、1か所から漏れたときに、ほかのサービスにも入られます。新しい案は<a href="/password/tsukuru/">パスワードを作る</a>で出せます。</li>
-  <li><b>全部は書かない方法もある。</b>IPAは、自分だけが覚えている共通の部分（コアパスワード）は暗記し、サービスごとに足す短い文字だけを紙に記録する方法を紹介しています。紙をなくしても、それだけでは使えません。この方法で書くなら、上の「手がかりだけ」を選んでください。</li>
-  <li><b>2段階認証の欄も埋める。</b>どのサービスに何を付けたかが分かると、スマホを替えるときに困りません。付け方は<a href="/nidankai/">サービスごとの一覧</a>へ。</li>
+  <li><b>全部は書かない方法もある。</b>IPAは、自分だけが覚えている共通の部分（コアパスワード）は暗記し、サービスごとに足す短い文字だけを紙に記録する方法を紹介しています。紙をなくしても、それだけでは使えません。この方法で書くなら、「件数や欄を変える」の中の「手がかりだけ」を選んでください。</li>
+  <li><b>2段階認証の欄を足す。</b>「件数や欄を変える」で足せます。どのサービスに何を付けたかが分かると、スマホを替えるときに困りません。付け方は<a href="/nidankai/">サービスごとの一覧</a>へ。</li>
   <li><b>消せるペンで書かない。</b>こすると消えるインクは、熱で文字が消えることがあります。</li>
 </ul>
 
@@ -141,6 +150,6 @@
 </footer>
 <div id="dock"><div class="in"><span class="prog" id="dockSum"></span><button type="button" id="printBtn">印刷する</button></div></div>
 <div id="sheets" aria-hidden="true"></div>
-<script src="/password/note/note.js?v=20261115a"></script>
+<script src="/password/note/note.js?v=20261115c"></script>
 </body>
 </html>

@@ -4,6 +4,8 @@ import assert from 'assert';
 import { readFileSync } from 'fs';
 const require = createRequire(import.meta.url);
 const N = require('../password/note/note.js');
+// はじめの形: 大きく書ける4件・欄は少なめ（はじめての人が迷わない）
+assert.equal(N.DEF.per, 4); assert.equal(N.DEF.twofa, false); assert.equal(N.rows(N.DEF).length, 8);
 // 件数と枚数
 assert.equal(N.total({ ...N.DEF, per: 6, sheets: 2 }), 12);
 assert.equal(N.summary({ ...N.DEF, per: 8, sheets: 3 }), 'A4・3枚・24件ぶん（1枚8件）');
@@ -25,6 +27,7 @@ assert.ok(!N.sheetHtml({ ...N.DEF, caution: false }, 1).includes('持ち歩か�
 // 入力欄を作らない・外部リンクは運営の2つだけ（サイトの決まり）
 const page = readFileSync(new URL('../password/note/index.html', import.meta.url), 'utf8');
 assert.ok(!/<input|<textarea|<select|contenteditable|<form/i.test(page), '入力欄がある');
+assert.ok(/<details class="custom" id="custom">/.test(page), '選ぶ項目は折りたたみの中');
 assert.ok(!/style="/.test(page) && !/<style/.test(page), 'CSPで使えない書き方');
 const ext = [...page.matchAll(/href="(https?:\/\/[^"]+)"/g)].map(m => new URL(m[1]).hostname).filter(h => h !== 'mamoru.kkpwebninja.com');
 assert.deepEqual([...new Set(ext)].sort(), ['kkpwebninja.com', 'privacypolicy.kkpwebninja.com']);

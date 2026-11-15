@@ -6,6 +6,17 @@
 .pv{font-size:calc((min(100vw, 760px) - 50px) / 210);background:#fff;border:1px solid #bbb;overflow:hidden}
 #sheets{display:none}
 .printrow{margin:.2rem 0 0}
+.btn.big{font:inherit;font-weight:700;font-size:19px;min-height:56px;padding:.7rem 2.2rem;cursor:pointer}
+.easy{list-style:none;counter-reset:e;padding:0;margin:1rem 0 .6rem;border-top:1px solid var(--line)}
+.easy li{counter-increment:e;border-bottom:1px solid var(--line);padding:.6rem 0 .6rem 2.6rem;position:relative;margin:0;font-size:17px;line-height:1.5}
+.easy li::before{content:counter(e);position:absolute;left:.2rem;top:.55rem;font-weight:700;font-size:20px;color:var(--accent-d);width:1.6rem;text-align:center}
+.easy li b{display:block;font-size:18px}
+.easy li span{font-size:15.5px;color:var(--sub)}
+.custom{border:1px solid var(--line);margin:1rem 0 .4rem}
+.custom summary{cursor:pointer;font-weight:700;font-size:15.5px;padding:.7rem .8rem;min-height:48px;background:var(--head)}
+.custom[open] summary{border-bottom:1px solid var(--line)}
+.custom .tool{margin:0;border:0}
+.custom > .note{padding:.5rem .8rem 0}
 .tool.note th{width:5.6em;padding:6px 8px;font-size:14.5px}
 .tool.note .chips{gap:6px}
 .chips.opt{margin:2px 0}
@@ -27,6 +38,11 @@
 .r.his{border-top-style:dashed}
 .foot{flex:0 0 auto;display:flex;justify-content:space-between;align-items:flex-end;height:7em;font-size:1em}
 .foot span{font-size:2.4em;color:#555}
+.per4 .r .k,.per4 .r .t{font-size:3.2em}
+.per4 .r.name .k{font-size:3.5em}
+.per4 .r.his .k,.per4 .r.his .t{font-size:2.9em}
+.per4 .r .no{font-size:2.8em}
+.per4 .r{padding-bottom:1em}
 .per8 .r{padding-bottom:.5em}
 .per8 .r .k,.per8 .r .t{font-size:2.3em}
 .per8 .r.name .k{font-size:2.5em}
