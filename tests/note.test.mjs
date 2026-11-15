@@ -33,6 +33,10 @@ const ext = [...page.matchAll(/href="(https?:\/\/[^"]+)"/g)].map(m => new URL(m[
 assert.deepEqual([...new Set(ext)].sort(), ['kkpwebninja.com', 'privacypolicy.kkpwebninja.com']);
 assert.ok(!/リベ|学長|両/.test(page), '会員限定の情報源の名前が出ている');
 assert.ok(/<details class="custom" id="kangae">/.test(page) && /id="motto"/.test(page), '考え方とコツは読みたい人だけ開ける形');
+// 価格は管理アプリのページ（compare.js）と同じ数字で書く
+const cmp = readFileSync(new URL('../password/compare.js', import.meta.url), 'utf8');
+for (const yen of ['17980', '27980']) assert.ok(cmp.includes(yen) && page.includes(Number(yen).toLocaleString('ja-JP') + '円'), '価格が compare.js と合わない: ' + yen);
+assert.ok(/id="noteCta" href="\/password\/"/.test(page), '次の一歩はサイト内の総額くらべへ');
 const js = readFileSync(new URL('../password/note/note.js', import.meta.url), 'utf8');
 assert.ok(!/localStorage|fetch\(|XMLHttpRequest|sendBeacon/.test(js), '保存や送信がある');
 console.log('note.test: ok');

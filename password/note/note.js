@@ -89,6 +89,8 @@
     } else return;
     draw();
   });
+  var cta = $('noteCta');
+  if (cta) cta.addEventListener('click', function () { if (root.mamoruEvent) root.mamoruEvent('mamoru_next_click', { from: 'note_cta' }); });
   doc.body.classList.add('hasDock');
   draw();
 })(typeof window !== 'undefined' ? window : globalThis);

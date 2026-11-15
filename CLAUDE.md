@@ -17,4 +17,5 @@
 ## 年に一度・価格が変わったら直す所
 - password/compare.js の価格（ソースネクスト 17,980/27,980円、公式 $47.88/$71.88・$4.99/$7.99）・為替（三菱UFJ TTS）・確認日。tests/compare.test.mjs の期待値も
 - password/index.html の価格表・出典
+- password/note/index.html の「次の一歩」の価格（17,980円・27,980円・1か月あたり約500円）と確認日。tests/note.test.mjs が compare.js と同じ数字かを検査
 - nidankai/list.js のリンク（各社のヘルプはURLが変わりやすい）

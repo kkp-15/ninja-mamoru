@@ -5,6 +5,8 @@
 .pvwrap{border:1px solid var(--line);background:#f4f1ec;padding:8px;margin:.2rem 0 .4rem}
 .pv{font-size:calc((min(100vw, 760px) - 50px) / 210);background:#fff;border:1px solid #bbb;overflow:hidden}
 #sheets{display:none}
+.nextstep{margin:1.4rem 0 1rem}
+.nextstep .btn{font-size:16.5px;min-height:48px;padding:.7rem 1.3rem}
 .printrow{margin:.2rem 0 0}
 .btn.big{font:inherit;font-weight:700;font-size:19px;min-height:56px;padding:.7rem 2.2rem;cursor:pointer}
 .easy{list-style:none;counter-reset:e;padding:0;margin:1rem 0 .6rem;border-top:1px solid var(--line)}
