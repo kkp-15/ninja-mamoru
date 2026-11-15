@@ -128,3 +128,17 @@
   .top2 .pv{font-size:calc(312px / 210)}
   .top2 .easy{margin-top:0}
 }
+
+/* 長い読み物（結論→短い導入→目次→結論入りの見出し→まとめ）。年配の方にも読みやすい大きさで */
+.article{font-size:16.5px;line-height:1.85}
+.article p{margin:0 0 .9rem}
+.article .a-lead{border-left:5px solid var(--accent-d);background:var(--head);padding:.7rem .9rem;margin:1rem 0 .9rem;font-size:17px}
+.article h3{font-size:18px;margin:1.8rem 0 .6rem;padding:.1rem 0 .1rem .6rem;border-left:5px solid var(--accent);line-height:1.5;scroll-margin-top:12px}
+.article .toc{margin:.4rem 0 0;font-size:16px;background:#fff}
+.article .toc li{margin:0 0 .35rem}
+.article .toc a{display:inline;line-height:2}
+.article .toc li{margin:0;padding:2px 0}
+.article b,.article h3{font-weight:700}
+.article ul,.article ol{margin:.2rem 0 .9rem}
+.article li{margin:0 0 .4rem}
+.article .faq details > summary{font-size:16.5px}
