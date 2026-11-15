@@ -59,13 +59,11 @@ const js = readFileSync(new URL('../password/note/note.js', import.meta.url), 'u
 for (const m of js.matchAll(/\$\('([A-Za-z_]+)'\)/g)) assert.ok(page.includes('id="' + m[1] + '"'), 'ページに無い部品: ' + m[1]);
 for (const id of ['o_twofa', 'o_memo', 'o_history']) assert.ok(page.includes('id="' + id + '"'));
 assert.ok(!/localStorage|fetch\(|XMLHttpRequest|sendBeacon/.test(js), '保存や送信がある');
-// 広告はPCの横だけ: プログラムは広い画面のときだけ js が読みこむ（ページに直接は書かない）。大きさは固定
-assert.ok(!/<script[^>]+googlesyndication/.test(page), '広告のプログラムをページに直接書いている');
-assert.ok(/min-width:1140px/.test(js) && /__kkpPreview/.test(js), '広い画面のときだけ読みこむ');
-assert.ok(!/data-ad-format="auto"|full-width-responsive="true"/.test(page), '広告の大きさを auto にしている');
+// 広告は置かない（一度置いて、同じ日に外した。2026-11-15）
+assert.ok(!/adsbygoogle|googlesyndication/.test(page + js), '広告が入っている');
 const hd = readFileSync(new URL('../_headers', import.meta.url), 'utf8');
-assert.ok(/^\/\*\n  Content-Security-Policy: default-src 'self'; script-src 'self' https:\/\/www\.googletagmanager\.com;/m.test(hd), 'ほかのページの決まりが変わっている');
-assert.equal((hd.match(/^\/password\/note\/\*$/gm) || []).length, 1);
+assert.equal((hd.match(/Content-Security-Policy/g) || []).length, 1, '守りの設定はサイト全体で1つだけ');
+assert.ok(/script-src 'self' https:\/\/www\.googletagmanager\.com;/.test(hd) && !/unsafe-inline/.test(hd));
 
 // 入口: パスワードの3ページの上に、行き来するタブがある（「どこに印刷があるかわからない」への対処）
 for (const f of ['../password/index.html', '../password/tsukuru/index.html', '../password/note/index.html']) {

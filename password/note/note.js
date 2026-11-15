@@ -129,17 +129,6 @@
   });
   var cta = $('noteCta');
   if (cta) cta.addEventListener('click', function () { if (root.mamoruEvent) root.mamoruEvent('mamoru_next_click', { from: 'note_cta' }); });
-  // PCの横の広告（ユーザー指示 2026-11-15）。幅1140px以上のときだけ広告のプログラムを読みこむ。
-  // スマホ・せまい画面・確認用（?preview=1 / localhost）では読みこまない
-  var WIDE = '(min-width:1140px)';
-  if (!root.__kkpPreview && root.matchMedia && root.matchMedia(WIDE).matches) {
-    $('sideAd').hidden = false;
-    var sc = doc.createElement('script');
-    sc.async = true; sc.crossOrigin = 'anonymous';
-    sc.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1298304917726270';
-    doc.head.appendChild(sc);
-    (root.adsbygoogle = root.adsbygoogle || []).push({});
-  }
   doc.body.classList.add('hasDock');
   draw();
   newPw();

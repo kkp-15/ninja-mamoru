@@ -81,18 +81,6 @@
 .pwmake .pwout{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:clamp(17px,5.2vw,26px);font-weight:700;letter-spacing:.04em;margin:0 0 .3rem;word-break:break-all;line-height:1.4}
 .pwmake .again{margin-top:0}
 
-/* PCの横の広告（幅1140px以上のときだけ。大きさは固定＝auto にしない）。印刷には出ない */
-.sidead{display:none}
-.sidead .kkp-ad-label{font-size:11px;color:#777;letter-spacing:.08em;margin:0 0 6px;line-height:1;text-align:center}
-@media(min-width:1140px){
-  .sidead:not([hidden]){display:block;position:absolute;top:168px;left:calc(50% + 404px);width:160px;min-height:618px}
-  .sidead ins.adsbygoogle{display:block;width:160px;height:600px}
-}
-@media(min-width:1440px){
-  .sidead:not([hidden]){width:300px}
-  .sidead ins.adsbygoogle{width:300px;height:600px}
-}
-
 /* メインを前に: 見本・手順のあとは、小さな見出しと折りたたみだけ */
 .sub{font-size:14px;color:var(--sub);margin:1.2rem 0 .3rem}
 .sub + .custom{margin-top:0}
@@ -102,3 +90,20 @@
 .nextline .btn{margin:0;flex:0 0 auto}
 .more .morein{padding:0 .8rem .8rem}
 .more h3{margin-top:1.2rem}
+
+/* 押せる所をはっきり（年配の方にも分かるように）: 折りたたみは「開く」の札つきの大きなボタンに */
+.custom{border:2px solid var(--ink);margin:.6rem 0;background:#fff}
+.custom + .custom{margin-top:.6rem}
+.custom > summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:17px;font-weight:700;line-height:1.4;padding:.75rem .8rem;min-height:56px;background:var(--head);cursor:pointer}
+.custom > summary::-webkit-details-marker{display:none}
+.custom > summary::after{content:"開く ▼";flex:0 0 auto;font-size:14px;font-weight:700;color:#fff;background:var(--accent-d);padding:.35rem .6rem;white-space:nowrap}
+.custom[open] > summary::after{content:"閉じる ▲";background:var(--ink)}
+.custom > summary:hover{background:#ffeccf}
+.sub{font-size:15.5px;color:var(--ink);font-weight:700;margin:1.4rem 0 .2rem}
+.more details > summary{font-size:16px}
+.easy li{font-size:17.5px}
+.easy li b{font-size:19px}
+.easy li span{font-size:16.5px;color:var(--ink)}
+.lead{font-size:16.5px}
+.nextline p{font-size:15.5px;color:var(--ink)}
+.custom .read{font-size:16.5px}
