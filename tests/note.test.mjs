@@ -73,6 +73,10 @@ for (const f of ['../password/index.html', '../password/tsukuru/index.html', '..
 }
 // 長い読み物の型（ユーザー指示 2026-11-15）: 結論が先 → 目次 → 結論入りの見出し → まとめ＋次にやること
 const art = page.split('class="morein article">')[1];
+// 会話だけでも全部が分かる形: 読み物のはじめに、問い5つと答え5つ
+const chat = art.split('id="kaiwa"')[1].split('</section>')[0];
+assert.equal((chat.match(/class="ask"/g) || []).length, 5); assert.equal((chat.match(/class="say"/g) || []).length, 5);
+assert.ok(art.indexOf('id="kaiwa"') < art.indexOf('結論から言うと'), '会話が先');
 assert.ok(art.indexOf('結論から言うと') < art.indexOf('class="toc"') && art.indexOf('class="toc"') < art.indexOf('<h3 id="a1">'), '結論→目次→本文の順');
 assert.ok((art.match(/<h3 id="(a\d|shimau)">[^<]*→[^<]*<\/h3>/g) || []).length >= 6, '見出しに結論（→）を入れる');
 assert.ok(art.indexOf('<h3 id="a7">') > art.indexOf('<h3 id="a6">') && /次にやること：/.test(art), 'まとめと次の行動');

@@ -299,3 +299,10 @@ th{background:var(--k-kinari)}
 .fig{margin:.6rem 0 1rem}
 .fig img{display:block;width:100%;height:auto;max-width:560px;border:2px solid var(--ink)}
 @media print{.fig{display:none}}
+
+/* 会話だけで楽しめる形（読み物のはじめに、会話で全部を言い切る） */
+.chat{border:2px solid var(--ink);background:#fffdf8;padding:.2rem .9rem .6rem;margin:1rem 0 1.2rem}
+.chat h3{border:0;padding:0;margin:.8rem 0 .8rem;font-size:18px}
+.chat .ask{margin-top:1rem}
+.chat .say{margin:.5rem 0 0}
+@media print{.chat{display:none}}
