@@ -67,4 +67,9 @@ const hd = readFileSync(new URL('../_headers', import.meta.url), 'utf8');
 assert.ok(/^\/\*\n  Content-Security-Policy: default-src 'self'; script-src 'self' https:\/\/www\.googletagmanager\.com;/m.test(hd), 'ほかのページの決まりが変わっている');
 assert.equal((hd.match(/^\/password\/note\/\*$/gm) || []).length, 1);
 
+// 入口: パスワードの3ページの上に、行き来するタブがある（「どこに印刷があるかわからない」への対処）
+for (const f of ['../password/index.html', '../password/tsukuru/index.html', '../password/note/index.html']) {
+  const h = readFileSync(new URL(f, import.meta.url), 'utf8');
+  assert.ok(/<nav class="subnav"[^>]*>.*href="\/password\/note\/"[^>]*>ノートを印刷<\/a>/.test(h), 'タブが無い: ' + f);
+}
 console.log('note.test: ok');
