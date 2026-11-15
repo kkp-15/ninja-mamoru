@@ -75,3 +75,8 @@
 .r.his .v{font-size:3.5em;margin-left:.6em}
 .r .v.old{text-decoration:line-through;text-decoration-thickness:.08em;color:#6c7fa8}
 @media(min-width:700px){.ex{font-size:calc(420px / 93)}}
+
+/* パスワードの案（画面だけ） */
+.pwmake{padding:.8rem .8rem .2rem;border-bottom:1px solid var(--line)}
+.pwmake .pwout{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:clamp(17px,5.2vw,26px);font-weight:700;letter-spacing:.04em;margin:0 0 .3rem;word-break:break-all;line-height:1.4}
+.pwmake .again{margin-top:0}

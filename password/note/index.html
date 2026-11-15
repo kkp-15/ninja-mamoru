@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>パスワード管理ノートを印刷して作る｜無料のA4用紙（変更の履歴も書ける）</title>
-<meta name="description" content="パスワード管理ノートの用紙を、家のプリンターですぐ印刷できます。1枚4・6・8件から選べて、2段階認証やパスワードを変えた日の欄も足せます。画面には何も打ち込みません。お店で売り切れのときにも。しまう場所と書き方のコツ付き。">
+<meta name="description" content="パスワード管理ノートの用紙を、家のプリンターですぐ印刷できます。押すだけで、大きく書ける1枚4件の用紙が出ます。パスワードを変えた日を書き足す欄つき。画面には何も打ち込みません。お店で売り切れのときにも。しまう場所と書き方のコツ付き。">
 <link rel="canonical" href="https://mamoru.kkpwebninja.com/password/note/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#e2600f">
@@ -36,7 +36,7 @@
 </script>
 <link rel="stylesheet" href="/kit/kit.css?v=afa429f">
 <link rel="stylesheet" href="/style.css?v=20261103pw2">
-<link rel="stylesheet" href="/password/note/note.css?v=20261115h">
+<link rel="stylesheet" href="/password/note/note.css?v=20261115k">
 <script src="/kit/kit.js?v=afa429f" defer></script>
 </head>
 <body>
@@ -51,15 +51,13 @@
 </header>
 
 <main>
-<p class="sum" aria-live="polite">できあがり: <b id="sum"></b></p>
 <div class="pvwrap" aria-label="用紙の見本（1枚目）"><div class="pv" id="pv"></div></div>
-<p class="printrow"><button type="button" class="btn big" id="printBtn2">印刷する</button></p>
 <ol class="easy">
-  <li><b>印刷する</b><span>A4の紙に、たて向きで。</span></li>
-  <li><b>手で書く</b><span>メール・銀行・買い物の順に。</span></li>
+  <li><b>印刷する</b><span>下の「印刷する」を押します。A4の紙に、たて向きで。</span></li>
+  <li><b>手で書く</b><span>メール・銀行・買い物の順に。こすると消えるペンは使いません。</span></li>
   <li><b>家にしまう</b><span>通帳と同じ場所へ。持ち歩かず、ほかの人の目にふれない所に。</span></li>
 </ol>
-<p class="note">大きく書けるように、1枚に4件の用紙にしてあります。用紙に「パスワード」という題は入れていません。<span id="hisNote"></span></p>
+<p class="note">大きく書けるように、1枚に4件の用紙にしてあります。用紙に「パスワード」という題は入れていません。</p>
 
 <details class="custom" id="rei">
 <summary>記入例を見る</summary>
@@ -67,8 +65,20 @@
 <ul class="read">
   <li><b>青い字が、書きこむ所の例です。</b>例の文字は作りものです。まねして使わないでください。</li>
   <li id="exOld"><b>パスワードを変えたら、古いものに線を引きます。</b>その下の「変えた日」と「新：」に、日付と新しいパスワードを書き足します。</li>
-  <li id="exQ"><b>ひみつの質問は、質問だけ書きます。</b>答えは自分で覚えておきます。</li>
   <li><b>キャッシュカードの暗証番号は書きません。</b>このノートは、ネットのサービスに入るためのIDとパスワードの控えです。</li>
+</ul>
+</details>
+
+<details class="custom" id="tsukuru">
+<summary>新しいパスワードの案を出す</summary>
+<div class="pwmake">
+  <p class="pwout" id="pwOut" aria-live="polite"></p>
+  <p><button type="button" class="again" id="pwAgain">別の案を出す</button></p>
+</div>
+<ul class="read">
+  <li><b>使い方</b>サービスの「パスワードの変更」の画面でこの文字を入れて、同じものをノートに書き写します。</li>
+  <li><b>書き写しやすい形です。</b>6文字ずつ3つに区切った20文字で、見分けにくい文字（数字の0と1、英字のl・I・O）は入っていません。「-」もパスワードの一部です。</li>
+  <li><b>この画面の中だけで作ります。</b>作った文字は、保存も送信もしません。長さや形を選びたいときは<a href="/password/tsukuru/">パスワードを作る</a>へ。</li>
 </ul>
 </details>
 
@@ -76,19 +86,16 @@
 <summary>件数や欄を変える（そのままでも使えます）</summary>
 <table class="tool note" aria-label="用紙の作り">
   <tr><th>件数（1枚）</th><td><div class="seg" id="perPick">
-    <button type="button" data-v="4">4件</button><button type="button" data-v="6">6件</button><button type="button" data-v="8">8件</button>
+    <button type="button" data-v="4">4件（大きく書ける）</button><button type="button" data-v="8">8件（たくさん入る）</button>
   </div></td></tr>
-  <tr><th>足す欄</th><td><div class="chips opt">
-    <button type="button" id="o_history">変更の履歴</button><button type="button" id="o_twofa">2段階認証</button><button type="button" id="o_memo">メモ</button><button type="button" id="o_question">ひみつの質問</button><button type="button" id="o_caution">注意書き</button>
-  </div></td></tr>
-  <tr><th>書き方</th><td><div class="seg" id="hintPick">
-    <button type="button" data-v="0">そのまま書く</button><button type="button" data-v="1">手がかりだけ</button>
+  <tr><th>欄</th><td><div class="chips opt">
+    <button type="button" id="o_history">変更の履歴</button><button type="button" id="o_twofa">2段階認証</button><button type="button" id="o_memo">メモ</button>
   </div></td></tr>
   <tr><th>枚数</th><td><div class="seg" id="sheetPick">
-    <button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="5">5</button><button type="button" data-v="10">10</button>
+    <button type="button" data-v="1">1枚</button><button type="button" data-v="3">3枚</button><button type="button" data-v="5">5枚</button>
   </div></td></tr>
 </table>
-<p class="note">4件は大きく書けて、8件はたくさん入ります。「2段階認証」は、付けている方法に印を付ける欄です。「注意書き」は、紙のいちばん下に入る保管の決まりの1行です。小さく使いたいときは、印刷の設定で「倍率70%」にするとA5ほどになります。</p>
+<p class="note">「2段階認証」は、付けている方法に印を付ける欄です。小さく使いたいときは、印刷の設定で「倍率70%」にするとA5ほどになります。</p>
 </details>
 <details class="custom" id="kangae">
 <summary>紙に書くときの考え方（読みたい方へ）</summary>
@@ -117,22 +124,6 @@
 
 <div class="point"><b>お店で売り切れのときにも</b>100円ショップの専用ノートが品薄だと報じられています（2026年11月）。買えるならそれが手軽です。買えないあいだは、この用紙を印刷して、ファイルやノートにはさんで使えます。</div>
 
-<h2 id="tsukaikata">使い方</h2>
-<ol class="steps">
-  <li><b>印刷する。</b>よく使うサービスの数より、少し多めの枚数にします。</li>
-  <li><b>大事なものから書く。</b>メール・銀行や証券・買い物・SNSの順がおすすめです。メールは、ほかのサービスのパスワードを作り直す入口になるからです。</li>
-  <li><b>家の決まった場所にしまう。</b>通帳や保険の書類と同じ場所が分かりやすいです。</li>
-  <li><b>変えたら書き足す。</b>「変えた日」と「新：」の欄に書き、古いものは線で消します。</li>
-</ol>
-
-<h2 id="kotsu">書くときのコツ</h2>
-<ul>
-  <li><b>サービスごとに別のパスワードにする。</b>同じものを使い回していると、1か所から漏れたときに、ほかのサービスにも入られます。新しい案は<a href="/password/tsukuru/">パスワードを作る</a>で出せます。</li>
-  <li><b>全部は書かない方法もある。</b>IPAは、自分だけが覚えている共通の部分（コアパスワード）は暗記し、サービスごとに足す短い文字だけを紙に記録する方法を紹介しています。紙をなくしても、それだけでは使えません。この方法で書くなら、「件数や欄を変える」の中の「手がかりだけ」を選んでください。</li>
-  <li><b>2段階認証の欄を足す。</b>「件数や欄を変える」で足せます。どのサービスに何を付けたかが分かると、スマホを替えるときに困りません。付け方は<a href="/nidankai/">サービスごとの一覧</a>へ。</li>
-  <li><b>消せるペンで書かない。</b>こすると消えるインクは、熱で文字が消えることがあります。</li>
-</ul>
-
 <h2 id="shimau">しまう場所の決まり</h2>
 <div class="scroll"><table class="cmp">
   <tr><th>すること</th><th>理由</th></tr>
@@ -143,21 +134,10 @@
   <tr><th>家族に場所を伝える</th><td>もしもの時に、家族が手続きできます。場所だけ伝えて、中身は見せなくてかまいません。</td></tr>
 </table></div>
 
-<h2 id="mamoreru">紙で守れること・守れないこと</h2>
-<div class="scroll"><table class="cmp">
-  <tr><th></th><th>紙のノート</th><th>管理アプリ</th></tr>
-  <tr><th>ネット越しに盗まれる</th><td>心配なし（つながっていない）</td><td>アプリ自体の守りが要る</td></tr>
-  <tr><th>なくす・火事・水ぬれ</th><td>弱い（控えが無いと戻らない）</td><td>強い（別の端末から戻せる）</td></tr>
-  <tr><th>偽サイトにだまされる</th><td>防げない（自分の目で見分ける）</td><td>気づきやすい（本物のサイトでしか自動入力されない）</td></tr>
-  <tr><th>長くて複雑なもの</th><td>書くのも打つのも手間</td><td>自動で作って自動で入る</td></tr>
-  <tr><th>お金</th><td>紙とインクだけ</td><td>無料のものと有料のものがある</td></tr>
-</table></div>
-<p>紙に書いても、サービスの側から漏れた場合は防げません。そのために、サービスごとに別のパスワードにして、<a href="/nidankai/">2段階認証</a>を付けておきます。件数が増えて書くのが大変になったら、<a href="/password/">管理アプリの選び方と総額くらべ</a>を見てください。</p>
-
 <section class="faq" id="motto">
 <h2>もっと知りたい方へ（パスワード管理のコツ）</h2>
 <p class="note">読みたい所だけ開いてください。</p>
-<details><summary>どのサービスから直せばいい？</summary><p>全部をいっぺんに直さなくて大丈夫です。お金と、ほかの入口になるものから順に進めます。①銀行・証券・クレジットカード ②Apple や Google のアカウント ③メール ④よく使う通販、の順がおすすめです。メールやアカウントは、ほかのサービスのパスワードを作り直す入口になるので、早めに直します。</p></details>
+<details><summary>どのサービスから直せばいい？</summary><p>全部をいっぺんに直さなくて大丈夫です。お金と、ほかの入口になるものから順に進めます。①銀行・証券・クレジットカード ②Apple や Google のアカウント ③メール ④よく使う通販、の順がおすすめです。メールやアカウントは、ほかのサービスのパスワードを作り直す入口になるので、早めに直します。新しいパスワードの案は<a href="/password/tsukuru/">パスワードを作る</a>で出せます。</p></details>
 <details><summary>パスワードは、定期的に変えたほうがいい？</summary><p>変えなくてかまいません。総務省の一般向けページは、サービスの側から流出した事実がない場合は「パスワードを変更する必要はありません」とし、それよりも使い回しのない固有のパスワードにすることを求めています。変えるのは、流出の知らせが来たときと、使い回していたときです。変えたら、ノートの「変えた日」に書き足します。</p></details>
 <details><summary>「もう漏れているかもしれない」と考えておく</summary><p>大きな会社からの流出は、自分では防げません。だから、漏れても広がらない形にしておきます。サービスごとに別のパスワードにすることと、<a href="/nidankai/">2段階認証</a>を付けることの2つです。2段階認証があれば、パスワードが知られても、それだけでは入れません。</p></details>
 <details><summary>席をはなれるときは、画面をロックする</summary><p>パスワードを強くしても、画面が開いたままでは意味がありません。席を立つときにロックするくせを付け、しばらく触らないと自動でロックがかかる設定にしておきます。すぐロックするキーは、Windows が「Windows ロゴ キー ＋ L」、Mac が「control ＋ command ＋ Q」です。買い物サイトなどを、使うたびにログアウトする必要はありません（家族と共用のパソコンは別です）。</p></details>
@@ -171,13 +151,11 @@
 <details><summary>パスワードを紙に書いても大丈夫ですか？</summary><p>家で保管するなら、公的機関も挙げている方法です。IPA（情報処理推進機構）は、覚えきれない場合は自宅で保管するノートなどへの記録や、パスワード管理ソフトの利用を勧めています。総務省は、メモに書いた場合は鍵のかかる机や金庫など安全な方法で保管するよう求めています。端末や机に貼るのは避けてください。</p></details>
 <details><summary>このページにパスワードを入力するのですか？</summary><p>入力しません。このページが作るのは白紙の用紙だけで、文字を打ち込む欄はありません。印刷したあと、手で書きます。選んだ件数や欄も、保存も送信もしません。</p></details>
 <details><summary>パスワードを変えたときは、どう書きますか？</summary><p>「変更の履歴」の欄に、変えた日と新しいパスワードを書き足します。古いものは線で消すと、どれが今のものか分かります。欄がいっぱいになったら、新しい枠に書き写してください。</p></details>
-<details><summary>コンビニのプリンターで印刷してもいいですか？</summary><p>白紙の用紙なので、中身を見られる心配はありません。ただ、家にプリンターがあるなら、そちらが手軽です。書きこんだあとの紙は、コピー機に置き忘れないよう、外でコピーしないでください。</p></details>
 </section>
 
 <h2 id="shutten">出典（確認日 2026年11月15日）</h2>
 <ul class="sources">
   <li>IPA「情報セキュリティ10大脅威 2025 個人編」（2025年6月）32ページ「適切な保管、運用を行う」 https://www.ipa.go.jp/security/10threats/eid2eo0000005231-att/kaisetsu_2025_kojin.pdf</li>
-  <li>IPA 安心相談窓口だより「不正ログイン被害の原因となるパスワードの使い回しはNG」（コアパスワードと、紙に記録する方法） https://www.ipa.go.jp/security/anshin/attention/2016/mgdayori20160803.html</li>
   <li>総務省「国民のためのサイバーセキュリティサイト」推測できる簡単なパスワードを利用しないようにしよう（パスワードの保管方法・使い回さない・定期的な変更は不要） https://www.soumu.go.jp/main_sosiki/cybersecurity/kokumin/security/end_user/general/01/</li>
   <li>Microsoft サポート「Windows のキーボード ショートカット」（Windows ロゴ キー + L） https://support.microsoft.com/ja-jp/windows/windows-%E3%81%AE%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88-dcc61a57-8ff0-cffe-9796-cb9706c75eec</li>
   <li>Apple サポート「Macのキーボードショートカット」（control + command + Q） https://support.apple.com/ja-jp/102650</li>
@@ -198,6 +176,6 @@
 </footer>
 <div id="dock"><div class="in"><span class="prog" id="dockSum"></span><button type="button" id="printBtn">印刷する</button></div></div>
 <div id="sheets" aria-hidden="true"></div>
-<script src="/password/note/note.js?v=20261115i"></script>
+<script src="/password/note/note.js?v=20261115k"></script>
 </body>
 </html>
