@@ -116,15 +116,15 @@
 .pwcard-b .btn.big{margin:0;font-size:18px;min-height:54px}
 .pwcard-n{font-size:15.5px;line-height:1.7;margin:0;color:var(--ink)}
 
-/* 主役の2つ（印刷・作る）を最初の画面に: スマホは見本を上半分だけ見せ、PCは見本を左・手順と作る箱を右に */
-.pvwrap{position:relative;max-height:calc((min(100vw, 760px) - 50px) * .76);overflow:hidden}
-.pvwrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(244,241,236,0),#f4f1ec)}
+/* 主役の2つ（印刷・作る）: PCは見本を左・手順と作る箱を右に */
+/* 2026-11-16 スマホでも用紙を1枚まるごと見せる（上半分だけだと「実物と違う」と見えたため・ユーザー指摘） */
+.pvwrap{position:relative}
+.pvcap{font-size:14.5px;color:var(--ink);margin:.5rem 0 0;text-align:center}
 .easy{margin-top:.6rem}
 .pwcard{margin-top:1rem}
 @media(min-width:900px){
   .top2{display:grid;grid-template-columns:330px minmax(0,1fr);gap:26px;align-items:start}
-  .top2 .pvwrap{max-height:none;margin:0}
-  .top2 .pvwrap::after{display:none}
+  .top2 .pvwrap{margin:0}
   .top2 .pv{font-size:calc(312px / 210)}
   .top2 .easy{margin-top:0}
 }
