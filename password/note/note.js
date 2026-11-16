@@ -4,8 +4,8 @@
 (function (root) {
   var PER = [4, 8];                    // 1枚あたりの件数
   var SHEETS = [1, 3, 5];              // 枚数
-  // はじめの形は、大きく書ける4件。欄は少なめ（はじめての人・年配の人が迷わないように）
-  var DEF = { per: 4, sheets: 3, twofa: false, memo: true, history: true };
+  // はじめの形は、大きく書ける4件を1枚だけ（まず1枚。もっと要る人は下で枚数を選ぶ・2026-11-16 ユーザー指示）。欄は少なめ（はじめての人・年配の人が迷わないように）
+  var DEF = { per: 4, sheets: 1, twofa: false, memo: true, history: true };
   var CAUTION = '持ち歩かない・端末やつくえに貼らない・家の決まった場所にしまう';
 
   // 変更の履歴の行数（1行は約7mm以上を保つ）

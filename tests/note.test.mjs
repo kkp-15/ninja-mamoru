@@ -5,7 +5,7 @@ import { readFileSync } from 'fs';
 const require = createRequire(import.meta.url);
 const N = require('../password/note/note.js');
 // はじめの形: 大きく書ける4件・欄は少なめ（はじめての人が迷わない）
-assert.equal(N.DEF.per, 4); assert.equal(N.DEF.twofa, false); assert.equal(N.rows(N.DEF).length, 8);
+assert.equal(N.DEF.per, 4); assert.equal(N.DEF.sheets, 1, 'はじめは1枚だけ'); assert.equal(N.summary(N.DEF), 'A4・1枚・4件ぶん'); assert.equal(N.DEF.twofa, false); assert.equal(N.rows(N.DEF).length, 8);
 // 選べるのは少しだけ（削ぎ落とし 2026-11-15）
 assert.deepEqual(N.PER, [4, 8]); assert.deepEqual(N.SHEETS, [1, 3, 5]);
 // 件数と枚数
