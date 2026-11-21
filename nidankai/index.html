@@ -26,10 +26,12 @@
 {
   "@context":"https://schema.org",
   "@graph":[
-    {"@type":"WebApplication","@id":"https://mamoru.kkpwebninja.com/nidankai/#app","name":"2段階認証の棚卸しチェック","url":"https://mamoru.kkpwebninja.com/nidankai/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"ja","datePublished":"2026-10-09","dateModified":"2026-10-09","description":"使っているサービスを選ぶと各社公式の2段階認証の設定ページへ進め、設定済みの印で進み具合が分かる無料ツール。記録は端末内のみ。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Organization","name":"web忍者の砦"},"publisher":{"@type":"Organization","name":"web忍者の砦","url":"https://kkpwebninja.com/"}},
+    {"@type":"WebApplication","@id":"https://mamoru.kkpwebninja.com/nidankai/#app","name":"2段階認証の棚卸しチェック","url":"https://mamoru.kkpwebninja.com/nidankai/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"ja","datePublished":"2026-10-09","dateModified":"2026-11-21","description":"使っているサービスを選ぶと各社公式の2段階認証の設定ページへ進め、設定済みの印で進み具合が分かる無料ツール。記録は端末内のみ。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Organization","name":"web忍者の砦"},"publisher":{"@type":"Organization","name":"web忍者の砦","url":"https://kkpwebninja.com/"}},
     {"@type":"FAQPage","@id":"https://mamoru.kkpwebninja.com/nidankai/#faq","mainEntity":[
       {"@type":"Question","name":"2段階認証はどのサービスから設定すればいいですか？","acceptedAnswer":{"@type":"Answer","text":"メール（Google・Apple・Microsoft・Yahoo!）からです。ほかのサービスのパスワード再設定はメールに届くので、メールを守ると全体が守られます。次に銀行・カード・証券などお金のサービスです。"}},
       {"@type":"Question","name":"「2段階認証」という設定が見つかりません。","acceptedAnswer":{"@type":"Answer","text":"会社によって呼び名が違います。LINEは「ログイン許可」、Yahoo! JAPANは「ワンタイムパスワード」、楽天カードは「第2パスワード」、メルカリは「パスキー」です。このページでは各社の呼び名を併記しています。"}},
+      {"@type":"Question","name":"パスキーは盗まれない？","acceptedAnswer":{"@type":"Answer","text":"パスキーの本物の鍵は、スマホや保存先のアカウントの中にあります。サービス側に置かれるのは、鍵穴にあたる公開鍵だけで、秘密にする必要がないものです。そのためサービスから情報が漏れても鍵は出ていかず、偽サイトでも使えません。狙われるのは鍵をしまっている保存先と端末なので、保存先のアカウント（Appleアカウント・Googleアカウント・パスワード管理アプリ）に2段階認証を入れ、スマホの画面ロックを必ずかけてください。パスキーを設定したあと、パスワードでのログインを止められるサービスなら止めておくと、さらに安心です。"}},
+      {"@type":"Question","name":"パスキーはApple・Google・管理アプリの全部に登録する？","acceptedAnswer":{"@type":"Answer","text":"全部に登録しなくて大丈夫です。いつも使う保存先1つにまとめる方が、どこに何を入れたか分かりやすく、守る入口も増えません。保存先は同じアカウントの端末どうしで同期されるので、スマホを買い替えても引き継げます。"}},
       {"@type":"Question","name":"選んだサービスや印はどこかに送られますか？","acceptedAnswer":{"@type":"Answer","text":"送られません。このブラウザの中にだけ保存され、「この端末の記録を消す」で消せます。"}}
     ]}
   ]
@@ -99,6 +101,8 @@
 <h2>よくある質問</h2>
 <details><summary>どれから設定すればいい？</summary><p>メール（Google・Apple・Microsoft・Yahoo!）からです。次にお金のサービス。</p></details>
 <details><summary>パスキーと2段階認証はどう違う？</summary><p>パスキーは、パスワードの代わりにスマホの指紋・顔認証などでログインする仕組みです。偽サイトに入力させる手口に強いとされ、日本証券業協会も証券口座でパスキーなどへの切り替えを呼びかけています。対応しているサービスなら、パスキーを選ぶのがよい選択です。</p></details>
+<details><summary>パスキーは盗まれない？</summary><p>パスキーの本物の鍵は、スマホや保存先のアカウントの中にあります。サービス側に置かれるのは、鍵穴にあたる公開鍵だけで、秘密にする必要がないものです。そのためサービスから情報が漏れても鍵は出ていかず、偽サイトでも使えません。狙われるのは鍵をしまっている保存先と端末なので、保存先のアカウント（Appleアカウント・Googleアカウント・パスワード管理アプリ）に2段階認証を入れ、スマホの画面ロックを必ずかけてください。パスキーを設定したあと、パスワードでのログインを止められるサービスなら止めておくと、さらに安心です。</p></details>
+<details><summary>パスキーはApple・Google・管理アプリの全部に登録する？</summary><p>全部に登録しなくて大丈夫です。いつも使う保存先1つにまとめる方が、どこに何を入れたか分かりやすく、守る入口も増えません。保存先は同じアカウントの端末どうしで同期されるので、スマホを買い替えても引き継げます。</p></details>
 <details><summary>ここにないサービスは？</summary><p>そのサービスの公式アプリかサイトの「セキュリティ」「ログイン設定」「アカウント設定」を探してください。検索で出たページが公式かどうかは、アドレス（ドメイン）で確かめます。</p></details>
 <details><summary>選んだサービスは送られますか？</summary><p>送られません。この端末にだけ保存され、「この端末の記録を消す」で消せます。</p></details>
 </section>
@@ -109,6 +113,7 @@
   <li>金融庁「インターネット取引サービスへの不正アクセス・不正取引にご注意ください」https://www.fsa.go.jp/ordinary/chuui/chuui_phishing.html</li>
   <li>日本証券業協会「不正アクセス等にご注意ください！」https://www.jsda.or.jp/about/hatten/inv_alerts/alearts04/index.html</li>
   <li>警察庁「フィッシング対策」https://www.npa.go.jp/bureau/cyber/countermeasures/phishing.html</li>
+  <li>Apple「パスキーのセキュリティについて」https://support.apple.com/ja-jp/102195（確認日 2026年11月21日）</li>
 </ul>
 
 <div class="author"><b>このサイトについて</b>
