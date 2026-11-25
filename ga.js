@@ -1,7 +1,7 @@
 /* GA4（回数だけ）。確認用: ?preview=1 と localhost では送らない。
    送るのはイベント名と page・from だけ。チェックの回答や選んだサービスは送らない。 */
 (function () {
-  var p = /[?&]preview=1/.test(location.search) || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  var p = /[?&]preview=1/.test(location.search) || location.hostname === 'localhost' || location.hostname === '127.0.0.1' || !/(^|\.)kkpwebninja\.com$/.test(location.hostname);
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
   if (p) { window.__kkpPreview = true; window['ga-disable-G-2LM85GJN0L'] = true; return; }
